@@ -3,9 +3,10 @@ export default {
   components: {},
   computed: {
     filteredDeviceList () {
-      return [{ name: 'TEMP DEVICE NAME', id: 'id' }]
+      return this.$store.getters.devices
     }
   },
+  created () {},
   methods: {},
   data () {
     return {}

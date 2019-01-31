@@ -4,7 +4,7 @@
       <li
         class="list-item"
         v-for="device in filteredDeviceList"
-        :key="device.id"
+        :key="device.name"
       >
         {{ device.name }}
       </li>

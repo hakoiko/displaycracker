@@ -1,4 +1,4 @@
-import Devices from '../devices'
+import * as Devices from '../devices'
 
 export default {
   state: {
