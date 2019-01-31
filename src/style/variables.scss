@@ -1,0 +1,27 @@
+// NORMALIZE ////////////
+@import '~normalize.css';
+ul, ol, dl, li, dt, dd { margin: 0; padding: 0; list-style: none; }
+
+// METRICS //////////////
+$width-web: 1120px;
+
+// COLORS ///////////////
+$purple-dark: #534C59;
+$white: #fff;
+
+$gray-lighter: #ddd;
+$gray-light: #ccc;
+$gray: #999;
+$gray-dark: #555;
+$gray-darker: #333;
+
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Oxygen+Mono|Raleway:500,700,900');
+// font-family: 'Raleway', sans-serif;
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'Oxygen Mono', monospace;
+
+// LOGICAL VALUES /////
+$bg-main: $purple-dark;
+$bg-sub: $white;
+$c-text: $gray-dark;
