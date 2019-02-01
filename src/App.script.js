@@ -1,10 +1,10 @@
-import HeaderNav from './components/HeaderNav/HeaderNav'
+import HeaderBlock from './components/HeaderBlock/HeaderBlock'
 
 export default {
-  name: 'HeaderNav',
+  name: 'HeaderBlock',
   props: {},
   components: {
-    'header-nav': HeaderNav
+    'header-block': HeaderBlock
   },
   methods: {},
   data () {

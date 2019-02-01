@@ -1,23 +1,27 @@
 <template>
-  <header class="header-nav">
-    <div class="header-logo">
-      <span class="logo-img" />
-      <span class="logo-label">{{ appName }}</span>
+  <header class="header-block">
+    <div class="block-container">
+      <div class="header-logo">
+        <span class="image" />
+        <span class="label">
+          {{ appName }}
+        </span>
+      </div>
+      <ul class="header-nav">
+        <li
+          class="nav-item"
+          v-for="item in navItems"
+          :key="item.name"
+        >
+          {{ item.label }}
+        </li>
+      </ul>
     </div>
-    <ul class="header-nav">
-      <li
-        class="nav-item"
-        v-for="item in navItems"
-        :key="item.name"
-      >
-        {{ item.label }}
-      </li>
-    </ul>
   </header>
 </template>
 <script>
 export default {
-  name: 'HeaderNav',
+  name: 'HeaderBlock',
   props: {},
   components: {},
   methods: {
@@ -44,4 +48,4 @@ export default {
   }
 }
 </script>
-<style lang="scss" src="./HeaderNav.scss"></style>
+<style lang="scss" src="./HeaderBlock.scss" scoped />

@@ -1,0 +1,17 @@
+.header-block {
+  $height: 44px;
+  height: $height;
+  background: $c-bg-sub;
+  .block-container {
+    width: $width-web;
+    margin: auto;
+  }
+  .header-logo {
+    > .image {
+      display: block;
+      width: 16px;
+      height: 19px;
+      background-image: url(../../assets/logo.svg);
+    }
+  }
+}

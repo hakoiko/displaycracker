@@ -3,7 +3,7 @@
     <ul class="device-list">
       <li
         class="list-item"
-        v-for="device in filteredDeviceList"
+        v-for="device in deviceList"
         :key="device.name"
       >
         {{ device.name }}

@@ -2,7 +2,7 @@ export default {
   name: 'device-list',
   components: {},
   computed: {
-    filteredDeviceList () {
+    deviceList () {
       return this.$store.getters.devices
     }
   },
