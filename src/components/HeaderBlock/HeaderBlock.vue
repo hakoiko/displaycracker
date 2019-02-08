@@ -12,6 +12,7 @@
           class="nav-item"
           v-for="item in navItems"
           :key="item.name"
+          :class="'-' + item.name"
         >
           {{ item.label }}
         </li>

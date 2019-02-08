@@ -5,13 +5,36 @@
   .block-container {
     width: $width-web;
     margin: auto;
+    position: relative;
   }
   .header-logo {
+    display: flex;
+    height: $height;
+    align-items: center;
     > .image {
-      display: block;
       width: 16px;
       height: 19px;
       background-image: url(../../assets/logo.svg);
+      margin-right: 11px;
+      margin-top: -5px;
+    }
+    > .label {
+      font: 900 20px 'Raleway';
+      line-height: 24px;
+    }
+  }
+  .header-nav {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: $height;
+    > .nav-item {
+      height: $height / 2;
+      margin-left: 35px;
+      font: 900 12px 'Raleway';
+      line-height: $height / 2;
     }
   }
 }

@@ -11,7 +11,7 @@ export default new Router({
     {
       path: '/',
       name: 'devices',
-      label: 'DEVICES',
+      label: 'Devices',
       showOnNav: true,
       component: DeviceList
     }
