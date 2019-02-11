@@ -1,16 +1,16 @@
 export const iPhoneX = {
   name: 'iPhone X', // name of the device.
   diagonal: 5.8, // diagonal length in inch. all of speification in this document is defined in SI unit. but most of manufacturers are open their screen sizes only in Inch. this is the only one yard/pound unit on this document.
-  render: { // rendered pixels.
+  resolution: { // display scale in rendered pixels.
     width: 1125,
     height: 2436
   },
-  coordinates: { // used in development.
+  coordinates: { // screen scale used in development.
     width: 375,
     height: 812
   },
   density: 3, // renderedScale / coordinateScale.
-  physical: { // specification for physical device
+  physical: { // specs for physical device
     device: {
       width: 75.7, // device width in mm. physical screen width would calculated from diagonal inch and aspect ratio.
       height: 150.9, // device height in mm.

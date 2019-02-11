@@ -2,5 +2,5 @@
   font-family: 'Major Mono Display', 'SF Pro Display', 'Open Sans', 'Apple SD Gothic', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   background-color: $c-bg-main;
   min-height: 100vh;
-  color: $c-text;
+  color: invert($c-text);
 }

@@ -1,12 +1,14 @@
 <template>
-  <section class="device-">
+  <section class="device-list">
     <ul class="device-list">
       <li
         class="list-item"
         v-for="device in deviceList"
         :key="device.name"
       >
-        {{ device.name }}
+        <device-card
+          :model="device"
+        />
       </li>
     </ul>
   </section>
