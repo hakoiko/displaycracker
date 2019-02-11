@@ -1,4 +1,4 @@
-import * as Utils from '../Utils/Utils'
+import * as Utils from '@/components/Utils/Utils'
 
 export default {
   name: 'deviceCard',
