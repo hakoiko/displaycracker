@@ -3,7 +3,7 @@
 </p>
 <p>&nbsp;</p>
 
-# ⚠️ This project is under developing.
+# ⚠️ This project is under development.
 Currently undergoing development for open it in march 2019.
 
 # Display Cracker
