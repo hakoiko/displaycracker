@@ -1,6 +1,7 @@
 <p align="center">
   <img height="50" src="./src/assets/icon-and-text.svg">
 </p>
+<p>&nbsp;</p>
 
 # ⚠️ This project is under developing.
 I'm developing this site to open in March 2019.
