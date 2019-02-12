@@ -1,39 +1,9 @@
-# hakoiko.displaycracker
+<p align="center">
+  <img height="50" src="./src/assets/icon-and-text.svg">
+</p>
 
-## Project setup
-```
-npm install
-```
+# ⚠️ This project is under developing.
+I'm developing this site to open in March 2019.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Display Cracker
+People use mobile devices with very different screen sizes. variations in size, resolution and density are very large. You could read a UI guideline of iOS and Android on their web site. but in real project, we have to choose some target devices. 'Display Cracker' is a reference of mobile screens . I hope this reference could be helpful for designers and marketers.
