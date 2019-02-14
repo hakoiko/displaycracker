@@ -21,10 +21,10 @@ describe('Utils.getSpec', () => {
   })
 
   it('check Spec calculation is correct: physicalHeight', () => {
-    expect(Utils.getSpec(spec).physicalHeight).toBeCloseTo(3.59, 0.2)
+    expect(Utils.getSpec(spec).physicalHeight).toBeCloseTo(35.9, 0.02)
   })
 
   it('check Spec calculation is correct: physicalWidth', () => {
-    expect(Utils.getSpec(spec).physicalWidth).toBeCloseTo(3.59, 0.2)
+    expect(Utils.getSpec(spec).physicalWidth).toBeCloseTo(35.9, 0.02)
   })
 })

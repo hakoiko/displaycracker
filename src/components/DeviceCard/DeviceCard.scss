@@ -1,0 +1,46 @@
+.device-card {
+  > .device-rendered {
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    height: 200px;
+  }
+  > .device-detail {
+    border-radius: 0 0 5px 5px;
+    padding: 20px 25px;
+    background-color: $c-bg-sub;
+    color: $c-text;
+    .detail-base {
+      > .manufacturer {
+        display: block;
+        font: 500 12px 'Raleway';
+        line-height: 14px;
+      }
+      > .name {
+        display: block;
+        font: 700 18px 'Raleway';
+      }
+      > .os {
+        .icon {
+          display: block;
+          width: 22px;
+          height: 22px;
+          margin-left: -4px;
+          background-size: contain;
+          &.-ios { background-image: url('../../assets/icons-apple.svg'); }
+          &.-android { background-image: url('../../assets/icons-apple.svg'); }
+        }
+      }
+    }
+    .detail-spec {
+      margin-top: 8px;
+      font: 400 11px 'OpenSans';
+      line-height: 15px;
+      opacity: .7;
+      .unit {
+        font-size: 9px;
+        font-weight: 600;
+        margin-left: 2px;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
-export const iPhoneX = {
-  name: 'iPhone X', // name of the device.
+export const iPhoneXS = {
+  name: 'iPhone XS', // name of the device.
   manufacturer: 'Apple',
   os: 'ios',
   device: {

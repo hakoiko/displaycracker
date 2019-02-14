@@ -1,5 +1,5 @@
 <template>
-  <section class="device-list">
+  <section class="section-device-list">
     <ul class="device-list">
       <li
         class="list-item"

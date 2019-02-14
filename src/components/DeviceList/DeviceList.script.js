@@ -7,7 +7,6 @@ export default {
   },
   computed: {
     deviceList () {
-      console.log(this.$store.getters.devices)
       return this.$store.getters.devices
     }
   },
