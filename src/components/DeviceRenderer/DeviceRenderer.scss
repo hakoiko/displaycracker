@@ -44,17 +44,22 @@
             opacity: .2;
           }
         }
-        > .paragraph {
+        > .content-main {
           display: block;
+          transform-origin: left top;
+          padding: 30px;
+          box-sizing: border-box;
           > .title {
-            background: $c-bg-sub;
             display: inline-block;
+            font: 900 42px 'Merriweather';
             margin: 0;
             padding: 0;
-            color: $c-text;
+            color: invert($c-text);
           }
-          > .content {
-            color: invert($c-text)
+          > .body {
+            color: invert($c-text);
+            font-size: 16px;
+            line-height: 22px;
           }
         }
       }

@@ -75,21 +75,13 @@ export default {
     },
     paragraphStyle () {
       const notchPos = this.model.notch.position.split('-')
-      const padding = this.model.screenSpec.physicalPtSize * 20
-      const titleSize = 42
-      const contentSize = 16
+      let scale = this.model.screenSpec.physicalWidth * this.scale / this.model.screenSpec.coordinates.width
       return {
         paragraph: {
-          'padding-left': padding * this.scale + 'px',
-          'padding-right': padding * this.scale + 'px',
-          'padding-top': notchPos[0] === 'top' ? (this.model.notch.height + padding) * this.scale + 'px' : padding,
-          'padding-bottom': notchPos[0] === 'bottom' ? (this.model.notch.height + padding) * this.scale + 'px' : padding
-        },
-        title: {
-          'font-size': titleSize * this.model.screenSpec.physicalPtSize * this.scale + 'px'
-        },
-        content: {
-          'font-size': contentSize * this.model.screenSpec.physicalPtSize * this.scale + 'px'
+          width: this.model.screenSpec.coordinates.width + 'px',
+          height: this.model.screenSpec.coordinates.height + 'px',
+          'margin-top': notchPos[0] === 'top' ? (this.model.notch.height + this.model.notch.offsetY) * this.scale + 5 + 'px' : 0,
+          transform: 'scale(' + scale + ')'
         }
       }
     }

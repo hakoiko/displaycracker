@@ -21,13 +21,13 @@
             />
           </ul>
           <div
-            class="paragraph"
+            class="content-main"
             :style="paragraphStyle.paragraph"
           >
             <p class="title">
               {{ paragraphTitle }}
             </p>
-            <p class="content">
+            <p class="body">
               {{ paragraph }}
             </p>
           </div> -->
