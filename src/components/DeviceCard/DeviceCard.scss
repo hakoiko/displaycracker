@@ -26,8 +26,8 @@
           height: 22px;
           margin-left: -4px;
           background-size: contain;
-          &.-ios { background-image: url('../../assets/icons-apple.svg'); }
-          &.-android { background-image: url('../../assets/icons-apple.svg'); }
+          &.-ios { background-image: url('../../assets/icon-apple.svg'); }
+          &.-android { background-image: url('../../assets/icon-android.svg'); }
         }
       }
     }

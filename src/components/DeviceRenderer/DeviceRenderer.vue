@@ -1,5 +1,8 @@
 <template>
-  <div class="device-renderer">
+  <div
+    class="device-renderer"
+    :class="'-' + model.manufacturer"
+  >
     <div
       class="body"
       :style="deviceBodyStyle"
