@@ -15,4 +15,4 @@
 </template>
 
 <script src="./DeviceList.script.js"></script>
-<style lang="scss"></style>
+<style src="./DeviceList.scss" lang="scss"></style>

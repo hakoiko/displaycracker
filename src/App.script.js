@@ -1,11 +1,6 @@
-import HeaderBlock from './components/HeaderBlock/HeaderBlock'
-
 export default {
-  name: 'HeaderBlock',
+  name: 'App',
   props: {},
-  components: {
-    'header-block': HeaderBlock
-  },
   methods: {},
   data () {
     return {}

@@ -3,4 +3,9 @@
   background-color: $c-bg-main;
   min-height: 100vh;
   color: invert($c-text);
+  .section-content {
+    width: $width-web;
+    margin: auto;
+    position: relative;
+  }
 }

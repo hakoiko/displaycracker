@@ -1,5 +1,5 @@
-export const iPhoneXS = {
-  name: 'iPhone XS', // name of the device.
+export const iPhoneX = {
+  name: 'iPhone X', // name of the device.
   manufacturer: 'Apple',
   os: 'ios',
   device: {
@@ -35,7 +35,7 @@ export const iPhoneXS = {
     width: 34, // width of notch in mm.
     height: 5, // height of notch in mm.
     position: 'top', // [top-left | top | top-right | bottom-left | bottom | bottom-right ]
-    radius: 3, // radius of notch or pinhole.
+    radius: 3.5, // radius of notch or pinhole.
     offsetX: 0, // offset from edge of screen. it depends on 'notch.position'. if position is 'top-right', 3 = 3mm from right edge of screen.
     offsetY: 0, // of position is 'bottom', 3 = 3mm from screeb bottom edge.
     style: {} // custom styles for notch

@@ -7,6 +7,7 @@ $width-web: 1120px;
 
 // COLORS ///////////////
 $purple-dark: #534C59;
+$blue: #4633ff;
 $white: #fff;
 
 $gray-lighter: #ddd;
@@ -22,6 +23,10 @@ $gray-darker: #333;
 // font-family: 'Oxygen Mono', monospace;
 
 // LOGICAL VALUES /////
+$c-point: $blue;
 $c-bg-main: $purple-dark;
 $c-bg-sub: $white;
 $c-text: $gray-dark;
+
+$c-line-main: $gray-light;
+$c-line-sub: $gray-dark;
