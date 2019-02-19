@@ -14,7 +14,7 @@ export default {
   },
   methods: {},
   created () {
-    this.model.screenSpec = Utils.getSpec(this.model.screen)
+    this.model.screen = Object.assign(this.model.screen, Utils.getSpec(this.model.screen))
   },
   data () {
     return {}

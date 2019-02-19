@@ -19,9 +19,8 @@ export default {
     },
     deviceScreenStyle () {
       const style = {
-        width: this.model.screenSpec.physicalWidth * this.scale + 'px',
-        height: this.model.screenSpec.physicalHeight * this.scale + 'px',
-        background: 'linear-gradient(to bottom, rgba(255, 255, 255, .1), rgba(255, 255, 255, .05))',
+        width: this.model.screen.physicalWidth * this.scale + 'px',
+        height: this.model.screen.physicalHeight * this.scale + 'px',
         'border-radius': this.model.screen.radius * this.scale + 'px',
         transform: [].join(' ')
       }
@@ -57,14 +56,14 @@ export default {
     contentGrid () {
       let items = []
       let gridWidth = 100 // points
-      let count = Math.ceil(this.model.screenSpec.coordinates.width / gridWidth)
+      let count = Math.ceil(this.model.screen.coordinates.width / gridWidth)
       for (let i = 1; i <= count; i++) {
         items.push({
           id: i,
           width: gridWidth,
           coordinate: i * gridWidth,
           style: {
-            width: this.model.screenSpec.physicalPtSize * gridWidth * this.scale + 'px'
+            width: this.model.screen.physicalPtSize * gridWidth * this.scale + 'px'
           }
         })
       }
@@ -73,16 +72,14 @@ export default {
         items: items
       }
     },
-    paragraphStyle () {
+    contentStyle () {
       const notchPos = this.model.notch.position.split('-')
-      let scale = this.model.screenSpec.physicalWidth * this.scale / this.model.screenSpec.coordinates.width
+      let scale = this.model.screen.physicalWidth * this.scale / this.model.screen.coordinates.width
       return {
-        paragraph: {
-          width: this.model.screenSpec.coordinates.width + 'px',
-          height: this.model.screenSpec.coordinates.height + 'px',
-          'margin-top': notchPos[0] === 'top' ? (this.model.notch.height + this.model.notch.offsetY) * this.scale + 5 + 'px' : 0,
-          transform: 'scale(' + scale + ')'
-        }
+        width: this.model.screen.coordinates.width + 'px',
+        height: this.model.screen.coordinates.height + 'px',
+        'margin-top': notchPos[0] === 'top' ? (this.model.notch.height + this.model.notch.offsetY) * this.scale + 'px' : 0,
+        transform: 'scale(' + scale + ')'
       }
     }
   },
@@ -90,9 +87,9 @@ export default {
   methods: {},
   data () {
     return {
-      scale: 2.1,
+      scale: 2.55,
       showGrid: false,
-      paragraphTitle: 'Lorem ipsum',
+      paragraphTitle: 'Lorem Ipsum',
       paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     }
   }

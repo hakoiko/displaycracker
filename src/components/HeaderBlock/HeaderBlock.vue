@@ -26,16 +26,17 @@ export default {
   props: {},
   components: {},
   methods: {
-    setNavItems () {
+    setNavItems (routes) {
       let items = []
-      this.$router.options.routes.forEach(route => {
+      routes.forEach(route => {
+        if (route.children) items = items.concat(this.setNavItems(route.children))
         if (route.showOnNav) items.push(route)
       })
       return items
     }
   },
   created () {
-    this.navItems = this.setNavItems()
+    this.navItems = this.setNavItems(this.$router.options.routes)
   },
   computed: {
     appName () {

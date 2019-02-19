@@ -5,10 +5,7 @@
   box-sizing: border-box;
   display: block;
   &.-Apple {
-    background: hsla(180, 65%, 85%, 1);
-    &:after {
-      background: linear-gradient(to bottom, hsla(0, 100%, 100%, .8), #000);
-    }
+    background: hsla(190, 65%, 85%, 1);
   }
   &.-Samsung {
     background: hsla(220, 65%, 85%, 1);
@@ -24,11 +21,22 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(to bottom, #fff, #000);
+    background: linear-gradient(to bottom, hsla(0, 100%, 80%, .8), hsla(0, 0%, 30%, 1));
     mix-blend-mode: overlay;
   }
   > .body {
-    position: relative; z-index: 2;
+    position: relative;
+    z-index: 2;
+    background-color: $c-device-body;
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      box-shadow: 0 2px 25px 0 hsla(0, 0%, 0%, 0.2), 0 1px 0 0 hsla(0, 0, 93%, 1);
+      border-radius: 20px;
+    }
     > .screen {
       position: absolute;
       top: 0;
@@ -37,6 +45,7 @@
       right: 0;
       margin: auto;
       overflow: hidden;
+      background-image: linear-gradient(to bottom, hsla(0, 0, 100%, .1), rgba(0, 0, 100%, .05));
       > .notch {
         position: absolute;
         margin: auto;
@@ -74,15 +83,15 @@
           box-sizing: border-box;
           > .title {
             display: inline-block;
-            font: 900 42px 'Merriweather';
+            font: 700 42px 'Raleway';
             margin: 0;
             padding: 0;
-            color: invert($c-text);
+            color: $c-text-invert;
           }
           > .body {
-            color: invert($c-text);
-            font-size: 16px;
-            line-height: 22px;
+            color: $c-text-invert;
+            font: 400 16px 'OpenSans';
+            line-height: 26px;
           }
         }
       }

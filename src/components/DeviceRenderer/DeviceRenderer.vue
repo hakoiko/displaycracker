@@ -25,7 +25,7 @@
           </ul>
           <div
             class="content-main"
-            :style="paragraphStyle.paragraph"
+            :style="contentStyle"
           >
             <p class="title">
               {{ paragraphTitle }}
