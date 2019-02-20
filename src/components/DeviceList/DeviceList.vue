@@ -1,5 +1,6 @@
 <template>
   <section class="section-device-list">
+    <device-search />
     <ul class="device-list">
       <li
         class="list-item"

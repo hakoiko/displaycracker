@@ -90,7 +90,7 @@ export default {
       scale: 2.55,
       showGrid: false,
       paragraphTitle: 'Lorem Ipsum',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A scelerisque purus semper eget duis at. Dictumst quisque sagittis purus sit amet. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh. Consequat semper viverra nam libero justo laoreet sit amet. Dui faucibus in ornare quam. Egestas egestas fringilla phasellus faucibus scelerisque. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Mus mauris vitae ultricies leo. A pellentesque sit amet porttitor eget dolor morbi non arcu. In hac habitasse platea dictumst. Quis risus sed vulputate odio ut enim blandit. Massa sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ut placerat orci nulla pellentesque dignissim. Vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus. Tempus urna et pharetra pharetra massa massa. Eu ultrices vitae auctor eu augue ut lectus arcu. Eu ultrices vitae auctor eu augue ut.'
     }
   }
 }

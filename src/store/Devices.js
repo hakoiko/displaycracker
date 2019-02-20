@@ -2,7 +2,7 @@ import * as Devices from '../devices'
 
 export default {
   state: {
-    devices: Devices,
+    devices: Object.values(Devices),
     deviceColor: '#555'
   },
   getters: {
