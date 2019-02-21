@@ -1,0 +1,89 @@
+.range-slider {
+  $handle-size: 17px;
+  $handle-color: $c-bg-sub;
+  $histogram-bg: $gray-lighter;
+  width: 100%;
+  min-width: 100px;
+  position: relative;
+
+  @mixin handle {
+    border: 1px solid $c-line;
+    width: $handle-size;
+    height: $handle-size;
+    border-radius: $handle-size;
+    background-color: $c-bg-sub;
+    cursor: pointer;
+    margin-top: $handle-size/-2;
+    box-shadow: $shadow;
+    position: relative;
+    z-index: 2;
+  }
+
+  @mixin track {
+    display: block;
+    margin: 0;
+    width: 100%;
+    line-height: 0;
+    height: 1px;
+    margin: 0;
+    cursor: pointer;
+    background-color: $c-line;
+    border: none;
+    color: transparent;
+  }
+
+  > .track {
+    height: 1px;
+    position: relative;
+    &.-track-2 {
+      margin-top: -1px;
+    }
+    &:last-of-type {
+      margin-bottom: $handle-size;
+    }
+    > .handle {
+      appearance: none;
+      width: 100%;
+      background: transparent;
+      position: relative;
+      height: 1px;
+      margin: 0;
+      line-height: 0;
+      font-size: 0;
+      display: block;
+      &::-webkit-slider-thumb {
+        appearance: none;
+        @include handle;
+      }
+      &::-moz-range-thumb {
+        @include handle;
+      }
+      &::-ms-thumb {
+        @include handle;
+      }
+      &::-webkit-slider-runnable-track {
+        @include track;
+      }
+      &::-moz-range-track {
+        @include track;
+      }
+      &::-ms-track {
+        @include track;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .histogram-chart {
+    display: flex;
+    height: 50px;
+    align-items: flex-end;
+    padding: 0 $handle-size/2;
+    > .bar {
+      flex: 1 1 auto;
+      background-color: $histogram-bg;
+    }
+  }
+}

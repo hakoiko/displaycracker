@@ -3,37 +3,53 @@ export default {
     condition: {
       string: '',
       displaySize: {
-        pointWidthMin: 0,
-        pointWidthMax: 760,
-        pointHeightMin: 0,
-        pointHeightMax: 760,
-        renderedPixelWidthMin: 0,
-        renderedPixelWidthMax: 1280,
-        renderedPixelHeightMin: 0,
-        renderedPixelHeightMax: 1280,
-        physicalWidthMin: 0,
-        physicalWidthMax: 100,
-        physicalHeightMin: 0,
-        physicalHeightMax: 100
+        pointWidth: {
+          min: 0,
+          max: 0,
+          children: []
+        },
+        pointHeight: {
+          min: 0,
+          max: 0,
+          children: []
+        },
+        pixelWidth: {
+          min: 0,
+          max: 0,
+          children: []
+        },
+        pixelHeight: {
+          min: 0,
+          max: 0,
+          children: []
+        },
+        physicalWidth: {
+          min: 0,
+          max: 0,
+          children: []
+        },
+        physicalHeight: {
+          min: 0,
+          max: 0,
+          children: []
+        }
       },
       density: {
         min: 1,
-        max: 5
+        max: 1,
+        children: []
       },
-      dpi: {
+      ppi: {
         min: 0,
-        max: 1000
+        max: 0,
+        children: []
       },
       platform: {
         ios: true,
         android: true,
         etc: true
       },
-      manufacturer: {
-        Apple: true,
-        Samsung: true,
-        LG: true
-      },
+      manufacturer: {},
       displayType: {
         OLED: true,
         LCD: true,
@@ -47,12 +63,44 @@ export default {
     }
   },
   actions: {
-    initializeCondition (context) {
-      console.log('@Store.Search.actions.context:', context)
-      // context.commit('setDeviceColor', '#555')
+    // Array.sort를 이용하는 방식 : 루프 여러번, 비교 한번
+    // Array.forEach를 이용하는 방식 : 루프 한번 & 비교 여러번
+    // 퍼포먼스 테스트를 해봐야하나.
+    initializeCondition (context, devices) {
+      let condition = Object.assign({}, context.state.condition)
+      let options = [
+        condition.displaySize.pointWidth,
+        condition.displaySize.pointHeight,
+        condition.displaySize.pixelWidth,
+        condition.displaySize.pixelHeight,
+        condition.displaySize.physicalWidth,
+        condition.displaySize.physicalHeight,
+        condition.density,
+        condition.ppi
+      ]
+      devices.forEach(device => {
+        condition.displaySize.pointWidth.children.push(device.screen.coordinates.width)
+        condition.displaySize.pointHeight.children.push(device.screen.coordinates.height)
+        condition.displaySize.pixelWidth.children.push(device.screen.resolution.width)
+        condition.displaySize.pixelHeight.children.push(device.screen.resolution.height)
+        condition.displaySize.physicalWidth.children.push(device.screen.physicalWidth)
+        condition.displaySize.physicalHeight.children.push(device.screen.physicalHeight)
+        condition.density.children.push(device.screen.density)
+        condition.ppi.children.push(device.screen.pixelsPer1Inch)
+        condition.manufacturer[device.manufacturer] = true
+      })
+      options.forEach(option => {
+        option.children.sort((a, b) => a - b)
+        option.min = option.children[0]
+        option.max = option.children[option.children.length - 1]
+      })
+      context.commit('initializeCondition', condition)
     }
   },
   mutations: {
+    initializeCondition (state, condition) {
+      state.condition = condition
+    },
     updateCondition (state, condition, key) {
       state.condition[key] = condition
     }

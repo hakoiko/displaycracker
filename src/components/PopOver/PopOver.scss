@@ -1,0 +1,26 @@
+.pop-over {
+  > .trigger {
+    cursor: pointer;
+    position: relative;
+    &.-on {z-index: $z-pop-over; }
+  }
+  > .dimm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsla(0, 0, 0, 1);
+    opacity: .2;
+    z-index: $z-pop-over-dimm;
+  }
+  > .body {
+    display: block;
+    position: absolute;
+    background: $c-bg-sub;
+    border-radius: $radius;
+    padding: $padding;
+    z-index: $z-pop-over;
+    box-shadow: $shadow;
+  }
+}

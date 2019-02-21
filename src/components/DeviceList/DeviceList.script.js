@@ -23,7 +23,9 @@ export default {
       return devices
     }
   },
-  created () {},
+  created () {
+    this.$store.dispatch('initializeDeviceList')
+  },
   methods: {},
   data () {
     return {}

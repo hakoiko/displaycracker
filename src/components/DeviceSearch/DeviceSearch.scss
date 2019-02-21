@@ -30,25 +30,40 @@
       width: 100%;
       font: 400 18px 'OpenSans';
       color: $c-text-invert;
+      outline: none;
       &::placeholder { color: darken($c-text-invert, 50%); }
+      &:focus {
+        box-shadow: 0 0 0 1px $c-point;
+      }
     }
   }
   .search-options {
     margin-top: 20px;
     display: flex;
+    position: relative;
     > .list-item {
       margin-right: 30px;
       &.-string { display: none; }
-      &.-on > .label { opacity: 1; }
-      .label {
+      &.-on > .pop-over > .trigger { opacity: 1; }
+      > .pop-over > .trigger {
         opacity: .3;
         font: 600 12px 'OpenSans';
         color: $c-text-invert;
         display: block;
+        &.-on {
+          opacity: 1;
+        }
       }
-      > .option-detail {
-        position: absolute;
-        display: none;
+      .display-size-options {
+        width: 880px;
+        display: flex;
+        margin: -15px;
+        > .option {
+          flex: 0 1 auto;
+          width: 33%;
+          padding: 15px;
+          box-sizing: border-box;
+        }
       }
     }
   }

@@ -1,4 +1,3 @@
-import * as Utils from '@/components/Utils/Utils'
 import DeviceRenderer from '../DeviceRenderer/DeviceRenderer'
 
 export default {
@@ -13,9 +12,7 @@ export default {
     }
   },
   methods: {},
-  created () {
-    this.model.screen = Object.assign(this.model.screen, Utils.getSpec(this.model.screen))
-  },
+  created () {},
   data () {
     return {}
   }

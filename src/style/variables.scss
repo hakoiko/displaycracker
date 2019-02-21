@@ -9,6 +9,7 @@ $width-web: 1120px;
 $purple-dark: #534C59;
 $blue: #4633ff;
 $white: #fff;
+$coral: #FA7268;
 
 $gray-lighter: #ddd;
 $gray-light: #ccc;
@@ -24,15 +25,22 @@ $gray-darker: #333;
 // font-family: 'Oxygen Mono', monospace;
 
 // LOGICAL VALUES /////
-$c-point: $blue;
+$c-point: $coral;
 $c-bg-main: $purple-dark;
 $c-bg-sub: $white;
 $c-text: $gray-dark;
 $c-text-invert: $white;
 
-$c-line-main: $gray-light;
+$c-line: $gray-light;
 $c-line-sub: $gray-dark;
 
 $c-device-body: $gray-dark;
 
+// BASIC SCALES
+$padding: 25px;
 $radius: 5px;
+$shadow: 0 5px 15px hsla(0, 0, 0, .1), 0 2px 5px hsla(0, 0, 0, .1) ;
+
+// Z-INDEX
+$z-pop-over-dimm: 1000;
+$z-pop-over: 1010;

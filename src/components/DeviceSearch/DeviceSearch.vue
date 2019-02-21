@@ -3,26 +3,49 @@
     <div class="search-string">
       <span class="icon -search" />
       <input
-        type="text"
+        type="search"
         class="input"
         v-model="condition.string"
-        @keyup="updateCondition('string')"
+        @keyup="updateCondition(['string'])"
         placeholder="Search Device"
       >
     </div>
-    <ul class="search-options">
+    <ul
+      class="search-options"
+      v-if="condition.displaySize"
+    >
       <li
-        v-for="option in options"
-        class="list-item"
-        :class="option.class"
-        :key="option.class"
+        class="list-item -display-size"
+        :class="{ '-on': condition.displaySize.on}"
       >
-        <span class="label">
-          {{ option.label }}
-        </span>
-        <div class="option-detail">
-          OPTION DETAIL
-        </div>
+        <pop-over position="bottom-right">
+          <span
+            slot="trigger"
+            class="label"
+          >
+            Display Size
+          </span>
+          <ul
+            slot="body"
+            class="display-size-options"
+          >
+            <li class="option -point-width">
+              <range-slider
+                :ranged="true"
+                :min="condition.displaySize.pointWidth.min"
+                :max="condition.displaySize.pointWidth.max"
+                :use-histogram="true"
+                :histogram-data="condition.displaySize.pointWidth.children"
+                :histogram-step="10"
+                :histogram-height="100"
+              />
+              <div class="label -point-width">
+                Display Size
+              </div>
+            </li>
+          </ul>
+        </pop-over>
+        <!-- /option for display size -->
       </li>
     </ul>
   </section>
