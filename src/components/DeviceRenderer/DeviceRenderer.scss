@@ -27,14 +27,14 @@
   > .body {
     position: relative;
     z-index: 2;
-    background-color: $c-device-body;
+    margin: auto;
     &:after {
       content: '';
       display: block;
       width: 100%;
       height: 100%;
       background: transparent;
-      box-shadow: 0 2px 25px 0 hsla(0, 0%, 0%, 0.2), 0 1px 0 0 hsla(0, 0, 93%, 1);
+      box-shadow: 0 2px 30px 0 hsla(0, 0, 0, .2), 0 1px 3px 0 hsla(0, 0, 0%, .3);
       border-radius: 20px;
     }
     > .screen {
@@ -45,10 +45,12 @@
       right: 0;
       margin: auto;
       overflow: hidden;
-      background-image: linear-gradient(to bottom, hsla(0, 0, 100%, .1), rgba(0, 0, 100%, .05));
+      background-image: linear-gradient(to bottom, hsla(0, 0, 98%, .9), hsla(0, 0, 95%, .7));
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) inset;
       > .notch {
         position: absolute;
         margin: auto;
+        border: 1px solid rgba(0, 0, 0, .1);
       }
       > .content {
         position: relative;
@@ -86,10 +88,10 @@
             font: 700 42px 'Raleway';
             margin: 0;
             padding: 0;
-            color: $c-text-invert;
+            color: $c-text;
           }
           > .body {
-            color: $c-text-invert;
+            color: $c-text;
             font: 400 16px 'OpenSans';
             line-height: 26px;
           }

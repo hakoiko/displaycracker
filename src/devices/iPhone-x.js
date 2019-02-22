@@ -30,7 +30,6 @@ export const iPhoneX = {
     style: {} // custom styles for screen
   },
   notch: {
-    hasNotch: true,
     type: 'notch', // [none | notch | pinhole]
     width: 34, // width of notch in mm.
     height: 5, // height of notch in mm.

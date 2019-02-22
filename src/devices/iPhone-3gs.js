@@ -28,7 +28,6 @@ export const iPhone3GS = {
     style: {} // custom styles for screen
   },
   notch: {
-    hasNotch: false,
     type: 'none', // [none | notch | pinhole]
     width: 0, // width of notch in mm.
     height: 0, // height of notch in mm.

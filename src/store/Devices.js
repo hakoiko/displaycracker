@@ -4,7 +4,7 @@ import * as Utils from '../components/Utils/Utils'
 export default {
   state: {
     devices: [],
-    deviceColor: '#555'
+    deviceColor: '#fafafa'
   },
   getters: {
     devices (state) {
@@ -22,7 +22,7 @@ export default {
       }))
     },
     resetColor (context) {
-      context.commit('setDeviceColor', '#555')
+      context.commit('setDeviceColor', '#fafafa')
     }
   },
   mutations: {

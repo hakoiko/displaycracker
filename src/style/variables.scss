@@ -18,7 +18,7 @@ $gray-dark: #555;
 $gray-darker: #333;
 
 // FONTS
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Oxygen+Mono|Raleway:500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Oxygen+Mono|Raleway:400,700,900');
 // font-family: 'Raleway', sans-serif;
 // font-family: 'Open Sans', sans-serif;
 // font-family: 'Merriweather', serif;
@@ -34,11 +34,9 @@ $c-text-invert: $white;
 $c-line: $gray-light;
 $c-line-sub: $gray-dark;
 
-$c-device-body: $gray-dark;
-
 // BASIC SCALES
 $padding: 25px;
-$radius: 5px;
+$radius: 17px;
 $shadow: 0 5px 15px hsla(0, 0, 0, .1), 0 2px 5px hsla(0, 0, 0, .1) ;
 
 // Z-INDEX
