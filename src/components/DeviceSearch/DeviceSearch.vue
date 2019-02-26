@@ -88,7 +88,7 @@
                 :min="condition.ppi.min"
                 :max="condition.ppi.max"
                 :for="'ppi'"
-                :step="1"
+                :step="0.1"
                 :from="condition.ppi.from"
                 :to="condition.ppi.to"
                 :use-histogram="true"
@@ -111,8 +111,54 @@
             </li>
           </ul>
         </pop-over>
-        <!-- /option for display size -->
       </li>
+      <!-- /.list-item.-ppi -->
+      <li
+        class="list-item -density"
+        :class="{ '-on': !condition.density.pure}"
+      >
+        <pop-over position="bottom-right">
+          <span
+            slot="trigger"
+            class="label"
+          >
+            Density
+          </span>
+          <ul
+            slot="body"
+            class="option-body -density"
+          >
+            <li class="list-item -density">
+              <range-slider
+                :ranged="true"
+                :min="condition.density.min"
+                :max="condition.density.max"
+                :for="'density'"
+                :step="0.1"
+                :from="condition.density.from"
+                :to="condition.density.to"
+                :use-histogram="true"
+                :histogram-data="condition.density.children"
+                :histogram-step="1"
+                :histogram-height="100"
+                @updated="updateCondition"
+                @inserted="setCondition"
+              />
+              <div
+                class="item-name -density"
+              >
+                <span class="name">
+                  Density
+                </span>
+                <span class="condition">
+                  {{ condition.density.from }}<span> - </span>{{ condition.density.to }}
+                </span>
+              </div>
+            </li>
+          </ul>
+        </pop-over>
+      </li>
+      <!-- /.list-item.-ppi -->
     </ul>
   </section>
 </template>

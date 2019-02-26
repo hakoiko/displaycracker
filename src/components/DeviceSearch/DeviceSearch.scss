@@ -84,7 +84,12 @@
             width: 33%;
             margin-top: 10px;
           }
-        } 
+        }
+        &.-ppi,
+        &.-density {
+          width: 350px;
+          margin: -15px;
+        }
       }
     }
   }

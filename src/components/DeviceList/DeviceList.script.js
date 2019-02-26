@@ -19,6 +19,7 @@ export default {
       if (condition.string.length) devices = devices.filter(this.filterDeviceName)
       if (!condition.displaySize.pure) devices = devices.filter(this.filterDisplaySize)
       if (!condition.ppi.pure) devices = devices.filter(this.filterDevicePpi)
+      if (!condition.density.pure) devices = devices.filter(this.filterDeviceDensity)
       return devices
     }
   },
@@ -34,8 +35,19 @@ export default {
       // backlog: support case sensitive search
       return device.name.toLowerCase().includes(this.condition.string.toLowerCase())
     },
+    /**
+     * PPI 필터
+     * @param {Object} device Device
+     */
     filterDevicePpi (device) {
-      return (device.screen.pixelsPer1Inch >= this.condition.ppi.from && device.screen.pixelsPer1Inch <= this.condition.ppi.to)
+      return (Number(device.screen.pixelsPer1Inch.toFixed(1)) >= this.condition.ppi.from && Number(device.screen.pixelsPer1Inch.toFixed(1)) <= this.condition.ppi.to)
+    },
+    /**
+     * Density 필터
+     * @param {Object} device Device
+     */
+    filterDeviceDensity (device) {
+      return (device.screen.density >= this.condition.density.from && device.screen.density <= this.condition.density.to)
     },
     /**
      * Device의 ScreenSize 옵션이 검색조건의 ScreenSize에 포함되는지 여부를 리턴
