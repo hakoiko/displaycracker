@@ -23,7 +23,7 @@
         :step="step"
         :min="min"
         :max="max"
-        v-model="from"
+        v-model="localFrom"
         @input="inserted('from')"
         @change="updated"
       >
@@ -36,7 +36,7 @@
         :step="step"
         :min="min"
         :max="max"
-        v-model="to"
+        v-model="localTo"
         @input="inserted('to')"
         @change="updated"
       >

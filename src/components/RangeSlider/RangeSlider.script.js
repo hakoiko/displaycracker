@@ -16,6 +16,14 @@ export default {
       type: Number,
       default: 100
     },
+    from: {
+      type: Number,
+      default: 0
+    },
+    to: {
+      type: Number,
+      default: 100
+    },
     // 슬라이더 이동 최소 수치
     step: {
       type: Number,
@@ -60,8 +68,8 @@ export default {
      * @param {string} handle ['from' | 'to']
      */
     inserted (handle) {
-      if (handle === 'from' && this.from >= this.to) this.from = Number(this.to) - this.step
-      if (handle === 'to' && this.to <= this.from) this.to = Number(this.from) + this.step
+      if (handle === 'from' && this.localFrom >= this.localTo) this.localFrom = Number(this.localTo) - this.step
+      if (handle === 'to' && this.localTo <= this.localFrom) this.localTo = Number(this.localFrom) + this.step
       this.$emit('inserted', this.value, this.for)
     },
     /**
@@ -76,7 +84,7 @@ export default {
      * from, to 값을 묶어서 반환합니다.
      */
     value () {
-      return [Number(this.from), Number(this.to)]
+      return [Number(this.localFrom), Number(this.localTo)]
     },
     /**
      * 히스토그램 데이터를 이용해 각 스텝별로 들어갈 아이템의 개수를 설정합니다.
@@ -115,8 +123,8 @@ export default {
   data () {
     return {
       histogramDataSorted: [],
-      from: this.min,
-      to: this.max
+      localFrom: this.from,
+      localTo: this.to
     }
   }
 }

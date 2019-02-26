@@ -54,17 +54,13 @@
           opacity: 1;
         }
       }
-      .display-size-options {
-        width: 880px;
+      .option-body {
         position: relative;
         display: flex;
-        margin: -15px;
-        flex-wrap: wrap;
+        color: $c-text;
         > .list-item {
           flex: 1 1 auto;
-          width: 33%;
           padding: 15px;
-          margin-top: 10px;
           box-sizing: border-box;
           > .item-name {
             margin-top: 20px;
@@ -80,6 +76,15 @@
             }
           }
         }
+        &.-display-size {
+          width: 880px;
+          margin: -15px;
+          flex-wrap: wrap;
+          > .list-item {
+            width: 33%;
+            margin-top: 10px;
+          }
+        } 
       }
     }
   }

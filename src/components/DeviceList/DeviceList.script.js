@@ -15,9 +15,9 @@ export default {
       let condition = this.$store.state.Search.condition
       let devices = this.$store.getters.devices
 
-      // String 검색 사용시
+      // apply search filters.
       if (condition.string.length) devices = devices.filter(this.filterDeviceName)
-      if (condition.displaySize.used === true) devices = devices.filter(this.filterDisplaySize)
+      if (!condition.displaySize.pure) devices = devices.filter(this.filterDisplaySize)
       return devices
     }
   },

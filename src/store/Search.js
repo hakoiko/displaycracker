@@ -3,16 +3,7 @@ export default {
     condition: {
       string: '',
       displaySize: {
-        used: false,
         pointWidth: {
-          min: 0,
-          max: 0,
-          from: 0,
-          to: 0,
-          unit: 'pt',
-          children: []
-        },
-        pointHeight: {
           min: 0,
           max: 0,
           from: 0,
@@ -28,20 +19,28 @@ export default {
           unit: 'px',
           children: []
         },
-        pixelHeight: {
-          min: 0,
-          max: 0,
-          from: 0,
-          to: 0,
-          unit: 'px',
-          children: []
-        },
         physicalWidth: {
           min: 0,
           max: 0,
           from: 0,
           to: 0,
           unit: 'mm',
+          children: []
+        },
+        pointHeight: {
+          min: 0,
+          max: 0,
+          from: 0,
+          to: 0,
+          unit: 'pt',
+          children: []
+        },
+        pixelHeight: {
+          min: 0,
+          max: 0,
+          from: 0,
+          to: 0,
+          unit: 'px',
           children: []
         },
         physicalHeight: {
@@ -51,10 +50,11 @@ export default {
           to: 0,
           unit: 'mm',
           children: []
-        }
+        },
+        pure: true
       },
       density: {
-        used: false,
+        pure: true,
         min: 1,
         max: 1,
         from: 1,
@@ -62,7 +62,7 @@ export default {
         children: []
       },
       ppi: {
-        used: false,
+        pure: true,
         min: 0,
         max: 0,
         from: 0,
@@ -70,16 +70,16 @@ export default {
         children: []
       },
       platform: {
-        used: false,
+        pure: true,
         ios: true,
         android: true,
         etc: true
       },
       manufacturer: {
-        used: false
+        pure: true
       },
       displayType: {
-        used: false,
+        pure: true,
         OLED: true,
         LCD: true,
         etc: true

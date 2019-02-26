@@ -14,6 +14,7 @@ export default {
     displaySizeOptions () {
       let result = []
       for (let key in this.condition.displaySize) {
+        if (key === 'pure') break
         result.push({
           label: this.$options.filters.labelize(key),
           class: '-' + this.$options.filters.hyphenize(key),
@@ -23,6 +24,8 @@ export default {
           step: this.sliderStep[key],
           min: this.condition.displaySize[key].min,
           max: this.condition.displaySize[key].max,
+          from: this.condition.displaySize[key].from,
+          to: this.condition.displaySize[key].to,
           unit: this.condition.displaySize[key].unit,
           useHistogram: true,
           histogramData: this.condition.displaySize[key].children,
@@ -39,20 +42,33 @@ export default {
   },
   methods: {
     /**
+     * 해당 컨디션의 min, max가 from, to와 같은지를 판별합니다.
+     * @param {Objec} condition Search Condition
+     */
+    checkPure (condition) {
+      if (condition.from) {
+        return (condition.min === condition.from && condition.max === condition.to)
+      } else {
+        let flag = true
+        for (let key in condition) {
+          flag = (condition[key].min === condition[key].from && condition[key].max === condition[key].to)
+          if (!flag) break
+        }
+        return flag
+      }
+    },
+    /**
      * 컴포넌트의 condition의 값을 value로 업데이트 합니다
-     * @param {Array} value RangeSlider로부터 받아오는 데이터
+     * @param {Array, String} value RangeSlider로부터 받아오는 데이터
      * @param {String} where RangeSlider가 변경하는 데이터의 부모 Object
      */
     setCondition (value, where) {
-      if (value.length > 1) {
+      if (Array.isArray(value) && value.length > 1) {
         this._.get(this.condition, where).from = Number(value[0])
         this._.get(this.condition, where).to = Number(value[1])
       } else {
-        this._.get(this.condition, where).value = Number(value[0])
+        if (where === 'string') this.condition[where] = value
       }
-    },
-    checkUsed (where) {
-      return false
     },
     /**
      * 디스플레이 크기 검색 컨디션을 Vuex 로 커밋 합니다.
@@ -62,7 +78,7 @@ export default {
     updateCondition (value, where) {
       this.setCondition(value, where)
       where = where.split('.')
-      this.condition[where[0]].used = this.checkUsed(where[0])
+      if (where[0] !== 'string') this.condition[where[0]].pure = this.checkPure(this.condition[where[0]])
       this.$store.commit('updateCondition', { where: where[0], val: this.condition[where[0]] })
     }
   },

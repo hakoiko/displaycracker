@@ -6,7 +6,7 @@
         type="search"
         class="input"
         v-model="condition.string"
-        @keyup="updateCondition(['string'])"
+        @keyup="updateCondition(condition.string, 'string')"
         placeholder="Search Device"
       >
     </div>
@@ -16,7 +16,7 @@
     >
       <li
         class="list-item -display-size"
-        :class="{ '-on': condition.displaySize.on}"
+        :class="{ '-on': !condition.displaySize.pure}"
       >
         <pop-over position="bottom-right">
           <span
@@ -27,7 +27,7 @@
           </span>
           <ul
             slot="body"
-            class="display-size-options"
+            class="option-body -display-size"
           >
             <li
               class="list-item"
@@ -41,6 +41,8 @@
                 :max="option.max"
                 :for="option.for"
                 :step="option.step"
+                :from="option.from"
+                :to="option.to"
                 :use-histogram="option.useHistogram"
                 :histogram-data="option.histogramData"
                 :histogram-step="option.histogramStep"
