@@ -6,8 +6,6 @@
 <script>
 export default {
   name: 'SectionPreview',
-  created () {
-    console.log('CREATED: PREVIEW')
-  }
+  created () {}
 }
 </script>

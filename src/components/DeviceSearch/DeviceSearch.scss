@@ -47,7 +47,7 @@
       &.-on > .pop-over > .trigger { opacity: 1; }
       > .pop-over > .trigger {
         opacity: .3;
-        font: 600 12px 'OpenSans';
+        font: 700 12px 'OpenSans';
         color: $c-text-invert;
         display: block;
         &.-on {
@@ -56,13 +56,29 @@
       }
       .display-size-options {
         width: 880px;
+        position: relative;
         display: flex;
         margin: -15px;
-        > .option {
-          flex: 0 1 auto;
+        flex-wrap: wrap;
+        > .list-item {
+          flex: 1 1 auto;
           width: 33%;
           padding: 15px;
+          margin-top: 10px;
           box-sizing: border-box;
+          > .item-name {
+            margin-top: 20px;
+            font-family: 'OpenSans';
+            font-size: 12px;
+            white-space: nowrap;
+            > .name {
+              font-weight: 700;
+            }
+            > .condition {
+              margin-left: 10px;
+              font-weight: 400;
+            }
+          }
         }
       }
     }

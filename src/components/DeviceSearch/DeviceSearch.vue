@@ -29,18 +29,35 @@
             slot="body"
             class="display-size-options"
           >
-            <li class="option -point-width">
+            <li
+              class="list-item"
+              :class="option.class"
+              v-for="option in displaySizeOptions"
+              :key="option.id"
+            >
               <range-slider
-                :ranged="true"
-                :min="condition.displaySize.pointWidth.min"
-                :max="condition.displaySize.pointWidth.max"
-                :use-histogram="true"
-                :histogram-data="condition.displaySize.pointWidth.children"
-                :histogram-step="10"
-                :histogram-height="100"
+                :ranged="option.ranged"
+                :min="option.min"
+                :max="option.max"
+                :for="option.for"
+                :step="option.step"
+                :use-histogram="option.useHistogram"
+                :histogram-data="option.histogramData"
+                :histogram-step="option.histogramStep"
+                :histogram-height="option.histogramHeight"
+                @updated="updateCondition"
+                @inserted="setCondition"
               />
-              <div class="label -point-width">
-                Display Size
+              <div
+                class="item-name"
+                :class="option.class"
+              >
+                <span class="name">
+                  {{ option.label }}
+                </span>
+                <span class="condition">
+                  {{ condition.displaySize[option.id].from }}{{ option.unit }}<span> - </span>{{ condition.displaySize[option.id].to }}{{ option.unit }}
+                </span>
               </div>
             </li>
           </ul>

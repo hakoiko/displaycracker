@@ -20,9 +20,11 @@
       <input
         class="handle"
         type="range"
+        :step="step"
         :min="min"
         :max="max"
         v-model="from"
+        @input="inserted('from')"
         @change="updated"
       >
     </div>
@@ -31,9 +33,11 @@
         class="handle"
         v-if="ranged"
         type="range"
+        :step="step"
         :min="min"
         :max="max"
         v-model="to"
+        @input="inserted('to')"
         @change="updated"
       >
     </div>
