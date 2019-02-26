@@ -78,7 +78,7 @@ export default {
     updateCondition (value, where) {
       this.setCondition(value, where)
       where = where.split('.')
-      if (where[0] !== 'string') this.condition[where[0]].pure = this.checkPure(this.condition[where[0]])
+      if (this.condition[where[0]].pure !== undefined) this.condition[where[0]].pure = this.checkPure(this.condition[where[0]])
       this.$store.commit('updateCondition', { where: where[0], val: this.condition[where[0]] })
     }
   },

@@ -66,6 +66,53 @@
         </pop-over>
         <!-- /option for display size -->
       </li>
+      <!-- /.list-item .-display-size -->
+      <li
+        class="list-item -ppi"
+        :class="{ '-on': !condition.ppi.pure}"
+      >
+        <pop-over position="bottom-right">
+          <span
+            slot="trigger"
+            class="label"
+          >
+            PPI
+          </span>
+          <ul
+            slot="body"
+            class="option-body -ppi"
+          >
+            <li class="list-item -ppi">
+              <range-slider
+                :ranged="true"
+                :min="condition.ppi.min"
+                :max="condition.ppi.max"
+                :for="'ppi'"
+                :step="1"
+                :from="condition.ppi.from"
+                :to="condition.ppi.to"
+                :use-histogram="true"
+                :histogram-data="condition.ppi.children"
+                :histogram-step="50"
+                :histogram-height="100"
+                @updated="updateCondition"
+                @inserted="setCondition"
+              />
+              <div
+                class="item-name -ppi"
+              >
+                <span class="name">
+                  PPI
+                </span>
+                <span class="condition">
+                  {{ condition.ppi.from }}<span> - </span>{{ condition.ppi.to }}
+                </span>
+              </div>
+            </li>
+          </ul>
+        </pop-over>
+        <!-- /option for display size -->
+      </li>
     </ul>
   </section>
 </template>

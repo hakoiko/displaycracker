@@ -116,7 +116,7 @@ export default {
         condition.displaySize.physicalWidth.children.push(Number(device.screen.physicalWidth.toFixed(2)))
         condition.displaySize.physicalHeight.children.push(Number(device.screen.physicalHeight.toFixed(2)))
         condition.density.children.push(device.screen.density)
-        condition.ppi.children.push(device.screen.pixelsPer1Inch)
+        condition.ppi.children.push(Number(device.screen.pixelsPer1Inch.toFixed(1)))
         condition.manufacturer[device.manufacturer] = true
       })
       options.forEach(option => {
