@@ -58,6 +58,12 @@
         position: relative;
         display: flex;
         color: $c-text;
+        &.-platform {
+          display: block;
+          > .list-item {
+            display: block;
+          }
+        }
         > .list-item {
           flex: 1 1 auto;
           padding: 15px;
@@ -89,6 +95,11 @@
         &.-density {
           width: 350px;
           margin: -15px;
+        }
+        &.-platform {
+          font: 400 14px 'OpenSans';
+          margin: -15px;
+          width: 150px;
         }
       }
     }

@@ -1,7 +1,7 @@
 export const iPhoneXPlus = {
   name: 'iPhone X Plus', // name of the device.
   manufacturer: 'Apple',
-  os: 'ios',
+  os: 'iOS',
   device: {
     width: 77.4, // device width in mm. physical screen width would calculated from diagonal inch and aspect ratio.
     height: 157.5, // device height in mm.

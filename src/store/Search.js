@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 export default {
   state: {
     condition: {
@@ -87,8 +89,8 @@ export default {
       },
       platform: {
         pure: true,
-        ios: true,
-        android: true,
+        iOS: true,
+        Android: true,
         etc: true
       },
       manufacturer: {
@@ -133,7 +135,7 @@ export default {
         condition.displaySize.physicalHeight.children.push(Number(device.screen.physicalHeight.toFixed(2)))
         condition.density.children.push(device.screen.density)
         condition.ppi.children.push(Number(device.screen.pixelsPer1Inch.toFixed(1)))
-        condition.manufacturer[device.manufacturer] = true
+        Vue.set(condition.manufacturer, device.manufacturer, true)
       })
       options.forEach(option => {
         option.children.sort((a, b) => a - b)

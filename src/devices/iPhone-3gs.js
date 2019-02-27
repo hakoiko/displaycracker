@@ -1,7 +1,7 @@
 export const iPhone3GS = {
   name: 'iPhone 3GS', // name of the device.
   manufacturer: 'Apple',
-  os: 'ios',
+  os: 'iOS',
   device: {
     width: 62.1, // device width in mm. physical screen width would calculated from diagonal inch and aspect ratio.
     height: 115.5, // device height in mm.

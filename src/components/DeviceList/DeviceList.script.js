@@ -15,11 +15,14 @@ export default {
       let condition = this.$store.state.Search.condition
       let devices = this.$store.getters.devices
 
+      console.log('condition.manufacturer.pure', condition.manufacturer.pure)
       // apply search filters.
       if (condition.string.length) devices = devices.filter(this.filterDeviceName)
       if (!condition.displaySize.pure) devices = devices.filter(this.filterDisplaySize)
       if (!condition.ppi.pure) devices = devices.filter(this.filterDevicePpi)
       if (!condition.density.pure) devices = devices.filter(this.filterDeviceDensity)
+      if (!condition.platform.pure) devices = devices.filter(this.filterDevicePlatform)
+      if (!condition.manufacturer.pure) devices = devices.filter(this.filterDeviceManufacturer)
       return devices
     }
   },
@@ -34,6 +37,22 @@ export default {
     filterDeviceName (device) {
       // backlog: support case sensitive search
       return device.name.toLowerCase().includes(this.condition.string.toLowerCase())
+    },
+    /**
+     * Platform 필터
+     * @param {Object} device Device
+     */
+    filterDevicePlatform (device) {
+      console.log('@filterDevicePlatform', this.condition.platform[device.os])
+      return this.condition.platform[device.os]
+    },
+    /**
+     * Manufacturer 필터
+     * @param {Object} device Device
+     */
+    filterDeviceManufacturer (device) {
+      console.log('@filterDeviceManufacturer', device.manufacturer, this.condition.manufacturer[device.manufacturer])
+      return this.condition.manufacturer[device.manufacturer]
     },
     /**
      * PPI 필터

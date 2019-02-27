@@ -177,7 +177,43 @@
               :class="'-' + key"
               :key="key"
             >
-              <checkbox v-model="condition.platform[key]">
+              <checkbox
+                v-model="condition.platform[key]"
+                @input="updateCondition($event, 'platform')"
+              >
+                {{ key }}
+              </checkbox>
+            </li>
+          </ul>
+        </pop-over>
+      </li>
+      <!-- /.list-item.-platform -->
+      <li
+        class="list-item -manufacturer"
+        :class="{ '-on': !condition.manufacturer.pure}"
+      >
+        <pop-over position="bottom-right">
+          <span
+            slot="trigger"
+            class="label"
+          >
+            Manufacturer
+          </span>
+          <ul
+            slot="body"
+            class="option-body -manufacturer"
+          >
+            <li
+              class="list-item"
+              v-for="(value, key) in condition.manufacturer"
+              v-show="key !== 'pure'"
+              :class="'-' + key"
+              :key="key"
+            >
+              <checkbox
+                v-model="condition.manufacturer[key]"
+                @input="updateCondition($event, 'manufacturer')"
+              >
                 {{ key }}
               </checkbox>
             </li>

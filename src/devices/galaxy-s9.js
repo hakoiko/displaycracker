@@ -1,7 +1,7 @@
 export const galaxyS9 = {
   name: 'Galaxy S9', // name of the device.
   manufacturer: 'Samsung',
-  os: 'android',
+  os: 'Android',
   device: {
     width: 68.7, // device width in mm. physical screen width would calculated from diagonal inch and aspect ratio.
     height: 147.7, // device height in mm.
