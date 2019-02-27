@@ -20,12 +20,13 @@
       <input
         class="handle"
         type="range"
+        ref="from"
         :step="step"
         :min="min"
         :max="max"
-        v-model="localFrom"
+        :value="from"
         @input="inserted('from')"
-        @change="updated"
+        @change="updated('from')"
       >
     </div>
     <div class="track -track-2">
@@ -33,12 +34,13 @@
         class="handle"
         v-if="ranged"
         type="range"
+        ref="to"
         :step="step"
         :min="min"
         :max="max"
-        v-model="localTo"
+        :value="to"
         @input="inserted('to')"
-        @change="updated"
+        @change="updated('to')"
       >
     </div>
   </div>

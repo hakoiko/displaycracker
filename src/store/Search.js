@@ -4,50 +4,62 @@ export default {
       string: '',
       displaySize: {
         pointWidth: {
+          value: {
+            from: 0,
+            to: 0
+          },
           min: 0,
           max: 0,
-          from: 0,
-          to: 0,
           unit: 'pt',
           children: []
         },
         pixelWidth: {
+          value: {
+            from: 0,
+            to: 0
+          },
           min: 0,
           max: 0,
-          from: 0,
-          to: 0,
           unit: 'px',
           children: []
         },
         physicalWidth: {
+          value: {
+            from: 0,
+            to: 0
+          },
           min: 0,
           max: 0,
-          from: 0,
-          to: 0,
           unit: 'mm',
           children: []
         },
         pointHeight: {
+          value: {
+            from: 0,
+            to: 0
+          },
           min: 0,
           max: 0,
-          from: 0,
-          to: 0,
           unit: 'pt',
           children: []
         },
         pixelHeight: {
+          value: {
+            from: 0,
+            to: 0
+          },
           min: 0,
           max: 0,
-          from: 0,
-          to: 0,
           unit: 'px',
           children: []
         },
         physicalHeight: {
+          value: {
+            from: 0,
+            to: 0
+          },
           min: 0,
           max: 0,
-          from: 0,
-          to: 0,
           unit: 'mm',
           children: []
         },
@@ -55,18 +67,22 @@ export default {
       },
       density: {
         pure: true,
+        value: {
+          from: 0,
+          to: 0
+        },
         min: 1,
         max: 1,
-        from: 1,
-        to: 1,
         children: []
       },
       ppi: {
         pure: true,
+        value: {
+          from: 0,
+          to: 0
+        },
         min: 0,
         max: 0,
-        from: 0,
-        to: 0,
         children: []
       },
       platform: {
@@ -122,9 +138,9 @@ export default {
       options.forEach(option => {
         option.children.sort((a, b) => a - b)
         option.min = option.children[0]
-        option.from = option.children[0]
         option.max = option.children[option.children.length - 1]
-        option.to = option.children[option.children.length - 1]
+        option.value.from = option.children[0]
+        option.value.to = option.children[option.children.length - 1]
       })
       context.commit('initializeCondition', condition)
     }

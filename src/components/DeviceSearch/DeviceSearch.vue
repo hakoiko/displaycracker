@@ -36,19 +36,17 @@
               :key="option.id"
             >
               <range-slider
+                v-model="option.value"
                 :ranged="option.ranged"
                 :min="option.min"
                 :max="option.max"
                 :for="option.for"
                 :step="option.step"
-                :from="option.from"
-                :to="option.to"
                 :use-histogram="option.useHistogram"
                 :histogram-data="option.histogramData"
                 :histogram-step="option.histogramStep"
                 :histogram-height="option.histogramHeight"
                 @updated="updateCondition"
-                @inserted="setCondition"
               />
               <div
                 class="item-name"
@@ -58,7 +56,7 @@
                   {{ option.label }}
                 </span>
                 <span class="condition">
-                  {{ condition.displaySize[option.id].from }}{{ option.unit }}<span> - </span>{{ condition.displaySize[option.id].to }}{{ option.unit }}
+                  {{ condition.displaySize[option.id].value.from }}{{ option.unit }}<span> - </span>{{ condition.displaySize[option.id].value.to }}{{ option.unit }}
                 </span>
               </div>
             </li>
@@ -84,19 +82,17 @@
           >
             <li class="list-item -ppi">
               <range-slider
+                v-model="condition.ppi.value"
                 :ranged="true"
                 :min="condition.ppi.min"
                 :max="condition.ppi.max"
                 :for="'ppi'"
                 :step="0.1"
-                :from="condition.ppi.from"
-                :to="condition.ppi.to"
                 :use-histogram="true"
                 :histogram-data="condition.ppi.children"
                 :histogram-step="50"
                 :histogram-height="100"
                 @updated="updateCondition"
-                @inserted="setCondition"
               />
               <div
                 class="item-name -ppi"
@@ -105,7 +101,7 @@
                   PPI
                 </span>
                 <span class="condition">
-                  {{ condition.ppi.from }}<span> - </span>{{ condition.ppi.to }}
+                  {{ condition.ppi.value.from }}<span> - </span>{{ condition.ppi.value.to }}
                 </span>
               </div>
             </li>
@@ -131,6 +127,7 @@
             <li class="list-item -density">
               <range-slider
                 :ranged="true"
+                v-model="condition.density.value"
                 :min="condition.density.min"
                 :max="condition.density.max"
                 :for="'density'"
@@ -142,7 +139,6 @@
                 :histogram-step="1"
                 :histogram-height="100"
                 @updated="updateCondition"
-                @inserted="setCondition"
               />
               <div
                 class="item-name -density"
@@ -151,14 +147,44 @@
                   Density
                 </span>
                 <span class="condition">
-                  {{ condition.density.from }}<span> - </span>{{ condition.density.to }}
+                  {{ condition.density.value.from }}<span> - </span>{{ condition.density.value.to }}
                 </span>
               </div>
             </li>
           </ul>
         </pop-over>
       </li>
-      <!-- /.list-item.-ppi -->
+      <!-- /.list-item.-density -->
+      <li
+        class="list-item -platform"
+        :class="{ '-on': !condition.platform.pure}"
+      >
+        <pop-over position="bottom-right">
+          <span
+            slot="trigger"
+            class="label"
+          >
+            Platform
+          </span>
+          <ul
+            slot="body"
+            class="option-body -platform"
+          >
+            <li
+              class="list-item"
+              v-for="(value, key) in condition.platform"
+              v-show="key !== 'pure'"
+              :class="'-' + key"
+              :key="key"
+            >
+              <checkbox v-model="condition.platform[key]">
+                {{ key }}
+              </checkbox>
+            </li>
+          </ul>
+        </pop-over>
+      </li>
+      <!-- /.list-item.-platform -->
     </ul>
   </section>
 </template>

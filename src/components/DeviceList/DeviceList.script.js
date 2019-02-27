@@ -40,14 +40,14 @@ export default {
      * @param {Object} device Device
      */
     filterDevicePpi (device) {
-      return (Number(device.screen.pixelsPer1Inch.toFixed(1)) >= this.condition.ppi.from && Number(device.screen.pixelsPer1Inch.toFixed(1)) <= this.condition.ppi.to)
+      return (Number(device.screen.pixelsPer1Inch.toFixed(1)) >= this.condition.ppi.value.from && Number(device.screen.pixelsPer1Inch.toFixed(1)) <= this.condition.ppi.value.to)
     },
     /**
      * Density 필터
      * @param {Object} device Device
      */
     filterDeviceDensity (device) {
-      return (device.screen.density >= this.condition.density.from && device.screen.density <= this.condition.density.to)
+      return (device.screen.density >= this.condition.density.value.from && device.screen.density <= this.condition.density.value.to)
     },
     /**
      * Device의 ScreenSize 옵션이 검색조건의 ScreenSize에 포함되는지 여부를 리턴
@@ -72,7 +72,7 @@ export default {
       ]
       let flag = true
       for (let i = 0; i < sizes.length; i++) {
-        flag = (sizes[i] >= conditions[i].from && sizes[i] <= conditions[i].to) ? flag : false
+        flag = (sizes[i] >= conditions[i].value.from && sizes[i] <= conditions[i].value.to) ? flag : false
         if (!flag) break
       }
       return flag

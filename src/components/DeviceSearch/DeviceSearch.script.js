@@ -1,11 +1,13 @@
 import RangeSlider from '../RangeSlider/RangeSlider'
+import Checkbox from '../Checkbox/Checkbox'
 import PopOver from '../PopOver/PopOver'
 
 export default {
   name: 'DeviceSearch',
   components: {
     'range-slider': RangeSlider,
-    'pop-over': PopOver
+    'pop-over': PopOver,
+    'checkbox': Checkbox
   },
   computed: {
     condition () {
@@ -21,11 +23,10 @@ export default {
           id: this.$options.filters.camelize(key),
           for: 'displaySize.' + key,
           ranged: true,
+          value: this.condition.displaySize[key].value,
           step: this.sliderStep[key],
           min: this.condition.displaySize[key].min,
           max: this.condition.displaySize[key].max,
-          from: this.condition.displaySize[key].from,
-          to: this.condition.displaySize[key].to,
           unit: this.condition.displaySize[key].unit,
           useHistogram: true,
           histogramData: this.condition.displaySize[key].children,
@@ -47,11 +48,11 @@ export default {
      */
     checkPure (condition) {
       if (condition.from) {
-        return (condition.min === condition.from && condition.max === condition.to)
+        return (condition.min === condition.value.from && condition.max === condition.value.to)
       } else {
         let flag = true
         for (let key in condition) {
-          flag = (condition[key].min === condition[key].from && condition[key].max === condition[key].to)
+          flag = (key !== 'pure' && condition[key].min === condition[key].value.from && condition[key].max === condition[key].value.to)
           if (!flag) break
         }
         return flag
@@ -93,12 +94,12 @@ export default {
         physicalHeight: 0.01
       },
       histogramStep: {
-        pointWidth: 10,
+        pointWidth: 5,
         pointHeight: 20,
         pixelWidth: 60,
         pixelHeight: 120,
-        physicalWidth: 2,
-        physicalHeight: 5
+        physicalWidth: 1,
+        physicalHeight: 3
       }
     }
   }

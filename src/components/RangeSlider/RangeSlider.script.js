@@ -1,5 +1,8 @@
 export default {
   name: 'RangeSlider',
+  model: {
+    event: 'input'
+  },
   props: {
     // Ranged slider인지 단일 값을 선탣하는 슬라이더인지 여부.
     ranged: {
@@ -16,13 +19,14 @@ export default {
       type: Number,
       default: 100
     },
-    from: {
-      type: Number,
-      default: 0
-    },
-    to: {
-      type: Number,
-      default: 100
+    value: {
+      type: Object,
+      default () {
+        return {
+          from: 0,
+          to: 100
+        }
+      }
     },
     // 슬라이더 이동 최소 수치
     step: {
@@ -68,23 +72,40 @@ export default {
      * @param {string} handle ['from' | 'to']
      */
     inserted (handle) {
-      if (handle === 'from' && this.localFrom >= this.localTo) this.localFrom = Number(this.localTo) - this.step
-      if (handle === 'to' && this.localTo <= this.localFrom) this.localTo = Number(this.localFrom) + this.step
-      this.$emit('inserted', this.value, this.for)
+      let from = this.$refs.from.valueAsNumber
+      let to = this.$refs.to.valueAsNumber
+      if (handle === 'from') this.value.from = from
+      if (handle === 'to') this.value.to = to
+      if (from > to) {
+        if (handle === 'from') this.value.from = to - this.step
+        if (handle === 'to') this.value.to = from + this.step
+      }
+      this.$emit('input', this.value)
     },
     /**
      * 레인지 슬라이더의 값이 변경이 완료되면 실행됩니다.
      */
-    updated () {
+    updated ($event) {
       this.$emit('updated', this.value, this.for)
+      // this.$emit('updated', this.value, this.for)
     }
   },
   computed: {
-    /**
-     * from, to 값을 묶어서 반환합니다.
-     */
-    value () {
-      return [Number(this.localFrom), Number(this.localTo)]
+    from: {
+      get () {
+        return this.value.from
+      },
+      set (val) {
+        this.value.from = val
+      }
+    },
+    to: {
+      get () {
+        return this.value.to
+      },
+      set (val) {
+        this.value.to = val
+      }
     },
     /**
      * 히스토그램 데이터를 이용해 각 스텝별로 들어갈 아이템의 개수를 설정합니다.
@@ -122,9 +143,7 @@ export default {
   },
   data () {
     return {
-      histogramDataSorted: [],
-      localFrom: this.from,
-      localTo: this.to
+      histogramDataSorted: []
     }
   }
 }
