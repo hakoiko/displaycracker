@@ -36,6 +36,13 @@
       margin-left: 35px;
       font: 900 12px 'Raleway';
       line-height: $height / 2;
+      > .router-link {
+        text-decoration: none;
+        color: $c-text;
+        &:hover {
+          color: $c-point;
+        }
+      }
     }
   }
 }

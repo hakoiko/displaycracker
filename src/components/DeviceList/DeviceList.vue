@@ -1,6 +1,7 @@
 <template>
   <section class="section-device-list">
     <device-search />
+    <router-view />
     <ul class="device-list">
       <li
         class="list-item"

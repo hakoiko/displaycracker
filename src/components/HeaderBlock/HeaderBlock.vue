@@ -14,7 +14,12 @@
           :key="item.name"
           :class="'-' + item.name"
         >
-          {{ item.label }}
+          <router-link
+            class="router-link"
+            :to="item.path"
+          >
+            {{ item.label }}
+          </router-link>
         </li>
       </ul>
     </div>
