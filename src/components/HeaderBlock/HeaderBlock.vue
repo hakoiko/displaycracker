@@ -2,9 +2,8 @@
   <header class="header-block">
     <div class="block-container">
       <div class="header-logo">
-        <span class="image" />
         <span class="label">
-          {{ appName }}
+          DISPLAY<br>CRACKER.
         </span>
       </div>
       <ul class="header-nav">
@@ -20,6 +19,12 @@
           >
             {{ item.label }}
           </router-link>
+        </li>
+        <li class="nav-item -github">
+          <a
+            href="https://github.com/hakoiko/displaycracker"
+            target="_blank"
+          />
         </li>
       </ul>
     </div>

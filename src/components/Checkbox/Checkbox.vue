@@ -62,7 +62,7 @@ export default {
       height: $size;
       background: $c-bg-sub;
       border: 1px solid $c-line;
-      border-radius: $radius / 4;
+      border-radius: 22px;
       pointer-events: none;
       background-color: lighten($c-line, 15%);
       border-color: $c-line;

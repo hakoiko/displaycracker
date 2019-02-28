@@ -7,8 +7,10 @@ $width-web: 1120px;
 
 // COLORS ///////////////
 $purple-dark: #534C59;
-$blue: #4633ff;
+$blue: #0d35ff;
 $white: #fff;
+$manilla: #fff58c;
+$mud-brown: #4c3a0f;
 $coral: #FA7268;
 $matcha: #88B04B;
 
@@ -26,19 +28,23 @@ $gray-darker: #333;
 // font-family: 'Oxygen Mono', monospace;
 
 // LOGICAL VALUES /////
-$c-point: $matcha;
-$c-bg-main: $purple-dark;
+$c-point: $blue;
+$c-bg-main: $manilla;
 $c-bg-sub: $white;
-$c-text: $gray-dark;
+$c-text: $mud-brown;
 $c-text-invert: $white;
 
 $c-line: $gray-light;
 $c-line-sub: $gray-dark;
 
+// TRANSITION
+$transition: .2s ease-in all;
+
 // BASIC SCALES
 $padding: 25px;
-$radius: 17px;
-$shadow: 0 5px 15px hsla(0, 0, 0, .1), 0 2px 5px hsla(0, 0, 0, .1) ;
+$radius: 0;
+$shadow: 0 5px 15px hsla(0, 0, 0, .1), 0 2px 5px hsla(0, 0, 0, .1);
+$shadow-hover: 0 10px 30px hsla(0, 0, 0, .1), 0 4px 10px hsla(0, 0, 0, .05);
 
 // Z-INDEX
 $z-pop-over-dimm: 1000;

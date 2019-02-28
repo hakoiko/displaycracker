@@ -1,27 +1,21 @@
 .header-block {
-  $height: 44px;
+  $height: 260px;
   height: $height;
-  background: $c-bg-sub;
   color: $c-text;
+  padding: 90px 0;
+  box-sizing: border-box;
   .block-container {
     width: $width-web;
     margin: auto;
     position: relative;
   }
   .header-logo {
-    display: flex;
     height: $height;
     align-items: center;
-    > .image {
-      width: 16px;
-      height: 19px;
-      background-image: url(../../assets/logo.svg);
-      margin-right: 11px;
-      margin-top: -5px;
-    }
     > .label {
-      font: 900 20px 'Raleway';
-      line-height: 24px;
+      font: 900 60px 'Raleway';
+      color: $c-point;
+      line-height: 45px;
     }
   }
   .header-nav {
@@ -30,18 +24,28 @@
     position: absolute;
     right: 0;
     top: 0;
-    height: $height;
     > .nav-item {
-      height: $height / 2;
       margin-left: 35px;
       font: 900 12px 'Raleway';
-      line-height: $height / 2;
       > .router-link {
         text-decoration: none;
+        display: inline-block;
         color: $c-text;
+        height: 16px;
         &:hover {
           color: $c-point;
         }
+        &.router-link-exact-active {
+          color: $c-point;
+          box-shadow: 0 2px 0 $c-point;
+        }
+      }
+      &.-github a {
+        $size: 26px;
+        display: block;
+        width: $size;
+        height: $size;
+        background: center / $size $size url('../../assets/icon-github.svg') no-repeat;
       }
     }
   }

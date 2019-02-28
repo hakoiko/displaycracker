@@ -1,5 +1,6 @@
 .device-card {
   box-shadow: $shadow;
+  transition: $transition;
   > .device-rendered {
     border-radius: $radius $radius 0 0;
     overflow: hidden;
@@ -42,8 +43,8 @@
           height: 22px;
           margin: auto;
           background-size: contain;
-          &.-ios { background-image: url('../../assets/icon-apple.svg'); }
-          &.-android { background-image: url('../../assets/icon-android.svg'); }
+          &.-iOS { background-image: url('../../assets/icon-apple.svg'); }
+          &.-Android { background-image: url('../../assets/icon-android.svg'); }
         }
       }
     }
@@ -59,5 +60,8 @@
         margin-left: 2px;
       }
     }
+  }
+  &:hover {
+    box-shadow: $shadow-hover
   }
 }

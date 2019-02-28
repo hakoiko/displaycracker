@@ -78,7 +78,8 @@ export default {
      * 해당 컨디션의 min, max가 from, to와 같은지를 판별합니다.
      * @param {Objec} condition Search Condition
      */
-    checkPure (condition) {
+    checkPure (condition, where) {
+      console.log('@checkPure.where:', where)
       if (condition.value) {
         // ppi, density등 condition이 바로 value를 가지는 경우
         console.log('@checkPure.1')
@@ -114,7 +115,7 @@ export default {
     updateCondition (value, where) {
       this.setCondition(value, where)
       where = where.split('.')
-      this.condition[where[0]].pure = this.checkPure(this.condition[where[0]])
+      this.condition[where[0]].pure = this.checkPure(this.condition[where[0]], where[0])
       this.$store.commit('updateCondition', { where: where[0], val: this.condition[where[0]] })
     }
   },
