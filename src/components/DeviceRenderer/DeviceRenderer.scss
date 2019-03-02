@@ -1,21 +1,19 @@
 .device-renderer {
-  background: #ccc;
   position: relative;
   padding: 25px;
   box-sizing: border-box;
   display: block;
   &.-Apple {
-    background: hsla(190, 65%, 85%, 1);
+    // background: hsla(190, 65%, 85%, 1);
   }
   &.-Samsung {
-    background: hsla(220, 65%, 85%, 1);
+    // background: hsla(220, 65%, 85%, 1);
   }
   &.-LG {
-    background: hsla(340, 65%, 85%, 1);
+    // background: hsla(340, 65%, 85%, 1);
   }
   &:after {
     display: block;
-    content: '';
     position: absolute;
     width: 100%;
     height: 100%;
@@ -27,7 +25,6 @@
   > .body {
     position: relative;
     z-index: 2;
-    margin: auto;
     &:after {
       content: '';
       display: block;

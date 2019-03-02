@@ -1,13 +1,12 @@
 .device-card {
-  box-shadow: $shadow;
   transition: $transition;
+  display: flex;
   > .device-rendered {
+    display: inline-block;
     border-radius: $radius $radius 0 0;
     overflow: hidden;
-    height: 257px;
     position: relative;
     &:before {
-      content: '';
       display: block;
       position: absolute;
       background-image: linear-gradient(to top, rgba(0, 0, 0, .05), rgba(0, 0, 0, 0));
@@ -18,12 +17,10 @@
     }
   }
   > .device-detail {
-    border-radius: 0 0 $radius $radius;
-    padding: $padding;
-    background-color: $c-bg-sub;
+    flex: 1 1 auto;
+    padding: $padding 0;
     color: $c-text;
     .detail-base {
-      text-align: center;
       > .manufacturer {
         display: block;
         font: 400 12px 'Raleway';
@@ -41,7 +38,7 @@
           display: block;
           width: 22px;
           height: 22px;
-          margin: auto;
+          margin-left: -4px;
           background-size: contain;
           &.-iOS { background-image: url('../../assets/icon-apple.svg'); }
           &.-Android { background-image: url('../../assets/icon-android.svg'); }
@@ -49,7 +46,7 @@
       }
     }
     .detail-spec {
-      display: none;
+      color: $c-text;
       margin-top: 8px;
       font: 400 11px 'OpenSans';
       line-height: 15px;
@@ -62,6 +59,6 @@
     }
   }
   &:hover {
-    box-shadow: $shadow-hover
+    // box-shadow: $shadow-hover
   }
 }

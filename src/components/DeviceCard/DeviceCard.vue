@@ -7,11 +7,11 @@
     </div>
     <div class="device-detail">
       <div class="detail-base">
-        <span class="name">
-          {{ model.name }}
-        </span>
         <span class="manufacturer">
           {{ model.manufacturer }}
+        </span>
+        <span class="name">
+          {{ model.name }}
         </span>
         <span class="os">
           <span
