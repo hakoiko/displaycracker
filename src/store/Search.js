@@ -107,7 +107,14 @@ export default {
       }
     }
   },
-  getters: {},
+  getters: {
+    searchCondition (state, getters) {
+      return state.condition
+    },
+    searchConditionByKey: state => key => {
+      return state.condition[key]
+    }
+  },
   actions: {
     // Array.sort를 이용하는 방식 : 루프 여러번, 비교 한번
     // Array.forEach를 이용하는 방식 : 루프 한번 & 비교 여러번

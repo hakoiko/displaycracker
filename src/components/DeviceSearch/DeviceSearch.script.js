@@ -90,7 +90,6 @@ export default {
         manufacturer: this.checkBooleanPure,
         string: (str) => (str.length === 0)
       }
-      console.log('@checkPure.where:', where)
       return checkers[where](condition)
     },
     /**

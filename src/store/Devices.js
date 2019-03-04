@@ -1,5 +1,7 @@
 import * as Devices from '../devices'
 import * as Utils from '../components/Utils/Utils'
+import Search from './Search'
+import Filter from '../components/Utils/DeviceListFilter'
 
 export default {
   state: {
@@ -13,6 +15,25 @@ export default {
     },
     deviceColor (state) {
       return state.deviceColor
+    },
+    /**
+     * Device List중, Search.condition과 일치하는 친구들을 찾아서 리턴합니다.
+     *
+     * @param {Object} state vuex state
+     * @param {Object} getters vuex getters
+     * @returns
+     */
+    filteredDeviceList (state, getters) {
+      let condition = Search.state.condition
+      let devices = getters.devices
+
+      if (!condition.string.pure) devices = devices.filter(Filter.filterDeviceName)
+      if (!condition.displaySize.pure) devices = devices.filter(Filter.filterDisplaySize)
+      if (!condition.ppi.pure) devices = devices.filter(Filter.filterDevicePpi)
+      if (!condition.density.pure) devices = devices.filter(Filter.filterDeviceDensity)
+      if (!condition.platform.pure) devices = devices.filter(Filter.filterDevicePlatform)
+      if (!condition.manufacturer.pure) devices = devices.filter(Filter.filterDeviceManufacturer)
+      return devices
     }
   },
   actions: {
