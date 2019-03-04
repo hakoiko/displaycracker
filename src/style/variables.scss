@@ -8,6 +8,7 @@ $width-web: 1120px;
 // COLORS ///////////////
 $purple-dark: #534C59;
 $blue: #0d35ff;
+$blue-purple: #4633FF;
 $white: #fff;
 $manilla: #fff58c;
 $mud-brown: #4c3a0f;
@@ -28,7 +29,7 @@ $gray-darker: #333;
 // font-family: 'Oxygen Mono', monospace;
 
 // LOGICAL VALUES /////
-$c-point: $blue;
+$c-point: $blue-purple;
 $c-bg-main: $manilla;
 $c-bg-sub: $white;
 $c-text: $mud-brown;
@@ -38,7 +39,7 @@ $c-line: $gray-light;
 $c-line-sub: $gray-dark;
 
 // TRANSITION
-$transition: .2s ease-in all;
+$transition: .2s ease-out all;
 
 // BASIC SCALES
 $padding: 25px;

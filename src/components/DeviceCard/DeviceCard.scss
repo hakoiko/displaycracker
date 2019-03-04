@@ -1,27 +1,39 @@
 .device-card {
+  $detail-spec-height: 45px;
+  $detail-spec-margin-top: 20px;
   box-shadow: $shadow;
-  transition: $transition;
+  transition: .5s ease-out all;
+  position: relative;
   > .device-rendered {
-    border-radius: $radius $radius 0 0;
+    height: 275px;
     overflow: hidden;
-    height: 257px;
+    .device-renderer {
+      height: 275px;
+      transition: .8s ease-out all;
+      > .body {
+        transition: .2s ease-out all;
+      }
+    }
+  }
+  > .device-detail {
+    box-sizing: border-box;
     position: relative;
+    z-index: 3;
+    padding: $padding;
+    background-color: $c-bg-sub;
+    color: $c-text;
+    transition: $transition;
     &:before {
       content: '';
       display: block;
       position: absolute;
       background-image: linear-gradient(to top, rgba(0, 0, 0, .05), rgba(0, 0, 0, 0));
-      bottom: 0;
+      top: -30px;
+      left: 0;
       width: 100%;
       height: 30px;
       z-index: 3;
     }
-  }
-  > .device-detail {
-    border-radius: 0 0 $radius $radius;
-    padding: $padding;
-    background-color: $c-bg-sub;
-    color: $c-text;
     .detail-base {
       text-align: center;
       > .manufacturer {
@@ -49,11 +61,13 @@
       }
     }
     .detail-spec {
-      display: none;
-      margin-top: 8px;
+      transition: $transition;
+      height: 0;
+      overflow: hidden;
       font: 400 11px 'OpenSans';
+      text-align: center;
       line-height: 15px;
-      opacity: .7;
+      opacity: 0;
       .unit {
         font-size: 9px;
         font-weight: 700;
@@ -62,6 +76,25 @@
     }
   }
   &:hover {
-    box-shadow: $shadow-hover
+    box-shadow: $shadow-hover;
+    z-index: 3;
+    transform: scale(1) translateY(-20px);
+    > .device-rendered {
+      // transform: translateY(-70px);
+      overflow: visible;
+      .device-renderer {
+        background-color: $c-point;
+        > .body {
+          transform: translateY(-60px);
+        }
+      }
+    }
+    > .device-detail {
+      .detail-spec {
+        height: $detail-spec-height;
+        margin-top: $detail-spec-margin-top;
+        opacity: .7;
+      }
+    }
   }
 }

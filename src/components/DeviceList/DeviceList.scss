@@ -8,6 +8,12 @@
       max-width: 25%;
       padding: 15px;
       box-sizing: border-box;
+      height: 392px;
+      margin-bottom: 30px;
+      > .item-link {
+        display: block;
+        cursor: pointer;
+      }
     }
   }
 }

@@ -11,7 +11,10 @@
         class="screen"
         :style="deviceScreenStyle"
       >
-        <div class="content">
+        <div
+          class="content"
+          :style="deviceContentStyle"
+        >
           <ul
             class="content-grid"
             v-if="showGrid"

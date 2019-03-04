@@ -45,21 +45,24 @@ export default {
     /**
      * min/max값을 가지는 아이템에 대한 pure 상태를 체크합니다.
      * @param {Object} condition Search Condition
-     * @param {String} key [Optional] Key 를 가지고 있을 경우 전달 ['displaySize']
      */
-    checkMinMaxPure (condition, hasChild = false) {
-      if (hasChild) {
-        let flag = true
-        for (let key in condition) {
-          if (key !== 'pure') {
-            flag = (condition[key].min === condition[key].value.from && condition[key].max === condition[key].value.to)
-            if (!flag) break
-          }
+    checkMinMaxPure (condition) {
+      return (condition.min === condition.value.from && condition.max === condition.value.to)
+    },
+    /**
+     * min/max값을 가지는 아이템에 대한 pure 상태를 체크합니다.
+     * DisplaySize등, 하위 아이템 전체의 pure 상태를 체크할 때 사용합니다.
+     * @param {Object} condition Search Condition
+     */
+    checkMinMaxPureWithChild (condition) {
+      let flag = true
+      for (let key in condition) {
+        if (key !== 'pure') {
+          flag = (condition[key].min === condition[key].value.from && condition[key].max === condition[key].value.to)
+          if (!flag) break
         }
-        return flag
-      } else {
-        return (condition.min === condition.value.from && condition.max === condition.value.to)
       }
+      return flag
     },
     /**
      * manufacturer, platform등의 key:Boolean인 친구들의 pure 상태를 리턴합니다.
@@ -79,20 +82,16 @@ export default {
      * @param {Objec} condition Search Condition
      */
     checkPure (condition, where) {
-      console.log('@checkPure.where:', where)
-      if (condition.value) {
-        // ppi, density등 condition이 바로 value를 가지는 경우
-        console.log('@checkPure.1')
-        return this.checkMinMaxPure(condition)
-      } else if (condition[Object.keys(condition)[0]].value) {
-        // displaySize 옵션등, condition의 Child가 value를 별도로 가지고 있는 경우
-        console.log('@checkPure.2')
-        return this.checkMinMaxPure(condition, true)
-      } else {
-        // manufacturerm, platfor등 condition이 key:Boolean의 값을 가지고 있는 경우.
-        console.log('@checkPure.3')
-        return this.checkBooleanPure(condition, true)
+      const checkers = {
+        displaySize: this.checkMinMaxPureWithChild,
+        density: this.checkMinMaxPure,
+        ppi: this.checkMinMaxPure,
+        platform: this.checkBooleanPure,
+        manufacturer: this.checkBooleanPure,
+        string: (str) => (str.length === 0)
       }
+      console.log('@checkPure.where:', where)
+      return checkers[where](condition)
     },
     /**
      * 컴포넌트의 condition의 값을 value로 업데이트 합니다

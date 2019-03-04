@@ -5,7 +5,7 @@
       <input
         type="search"
         class="input"
-        v-model="condition.string"
+        v-model="condition.string.value"
         @keyup="updateCondition(condition.string, 'string')"
         placeholder="Search Device"
       >

@@ -1,8 +1,10 @@
 <template>
-  <span class="pop-over">
+  <span
+    class="pop-over"
+    :class="{'-on': on}"
+  >
     <span
       class="trigger"
-      :class="{'-on': on}"
       @click="on = true"
     >
       <slot name="trigger" />

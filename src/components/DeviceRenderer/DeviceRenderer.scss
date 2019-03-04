@@ -4,6 +4,7 @@
   padding: 25px;
   box-sizing: border-box;
   display: block;
+  transition: $transition;
   &.-Apple {
     background: hsla(190, 65%, 85%, 1);
   }

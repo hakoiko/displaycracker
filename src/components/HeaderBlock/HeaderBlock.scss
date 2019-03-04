@@ -1,21 +1,17 @@
 .header-block {
-  $height: 260px;
-  height: $height;
   color: $c-text;
-  padding: 90px 0;
-  box-sizing: border-box;
+  padding: 80px 0;
   .block-container {
     width: $width-web;
     margin: auto;
     position: relative;
   }
   .header-logo {
-    height: $height;
     align-items: center;
     > .label {
-      font: 900 60px 'Raleway';
+      font: 900 80px 'Raleway';
       color: $c-point;
-      line-height: 45px;
+      line-height: 54px;
     }
   }
   .header-nav {

@@ -8,9 +8,14 @@
         v-for="device in deviceList"
         :key="device.name"
       >
-        <device-card
-          :model="device"
-        />
+        <a
+          class="item-link"
+          @click="routeToDeviceDetail(device)"
+        >
+          <device-card
+            :model="device"
+          />
+        </a>
       </li>
     </ul>
   </section>

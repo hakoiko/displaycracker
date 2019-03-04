@@ -15,9 +15,8 @@ export default {
       let condition = this.$store.state.Search.condition
       let devices = this.$store.getters.devices
 
-      console.log('condition.manufacturer.pure', condition.manufacturer.pure)
       // apply search filters.
-      if (condition.string.length) devices = devices.filter(this.filterDeviceName)
+      if (!condition.string.pure) devices = devices.filter(this.filterDeviceName)
       if (!condition.displaySize.pure) devices = devices.filter(this.filterDisplaySize)
       if (!condition.ppi.pure) devices = devices.filter(this.filterDevicePpi)
       if (!condition.density.pure) devices = devices.filter(this.filterDeviceDensity)
@@ -36,7 +35,7 @@ export default {
      */
     filterDeviceName (device) {
       // backlog: support case sensitive search
-      return device.name.toLowerCase().includes(this.condition.string.toLowerCase())
+      return device.name.toLowerCase().includes(this.condition.string.value.toLowerCase())
     },
     /**
      * Platform 필터
@@ -95,6 +94,14 @@ export default {
         if (!flag) break
       }
       return flag
+    },
+    /**
+     * 디바이스 상세를 오픈합니다.
+     *
+     * @param {Object} device Device Object.
+     */
+    routeToDeviceDetail (device) {
+      console.log('@routeToDeviceDetail:device', device)
     }
   },
   data () {

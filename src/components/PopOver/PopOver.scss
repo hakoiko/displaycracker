@@ -1,8 +1,8 @@
 .pop-over {
+  $transition: .3s ease-out all;
   > .trigger {
     cursor: pointer;
     position: relative;
-    &.-on {z-index: $z-pop-over; }
   }
   > .dimm {
     position: fixed;
@@ -22,5 +22,9 @@
     padding: $padding;
     z-index: $z-pop-over;
     box-shadow: $shadow;
+  }
+
+  &.-on {
+    > .trigger { z-index: $z-pop-over; }
   }
 }

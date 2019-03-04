@@ -3,7 +3,10 @@ import Vue from 'vue'
 export default {
   state: {
     condition: {
-      string: '',
+      string: {
+        pure: true,
+        value: ''
+      },
       displaySize: {
         pointWidth: {
           value: {
