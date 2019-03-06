@@ -9,6 +9,8 @@
         <device-renderer
           :model="model"
           :scale="3"
+          device-align="top"
+          :show-measure="true"
         />
         <screen-zoomed
           :model="model"

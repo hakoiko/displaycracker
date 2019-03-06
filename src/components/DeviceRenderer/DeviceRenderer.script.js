@@ -1,5 +1,10 @@
+import PixelMeasure from '../PixelMeasure/PixelMeasure'
+
 export default {
-  name: 'DeviceRender',
+  name: 'DeviceRenderer',
+  components: {
+    'pixel-measure': PixelMeasure
+  },
   props: {
     // 렌더링항 디바이스 정보를 받습니다. store/Devices.js 참조.
     model: {
@@ -19,6 +24,11 @@ export default {
     scale: {
       type: Number,
       default: 2.55
+    },
+    // 측정 수치를 화면에 표시합니다.
+    showMeasure: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -128,7 +138,6 @@ export default {
       }
     }
   },
-  components: {},
   methods: {
     /**
      * Notch의 위치에 따라 적용할 Style을 반환합니다.
