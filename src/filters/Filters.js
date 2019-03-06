@@ -26,4 +26,14 @@ Vue.filter('hyphenize', function (str) {
   return (result[0] === '-') ? result.substr(1) : result
 })
 
+Vue.filter('toFixed', function (val, decimal) {
+  val = Number(val)
+  if (!val) return ''
+  return val.toFixed(decimal)
+})
+
+Vue.filter('yesNo', function (val) {
+  return (val === true) ? 'Yes' : 'No'
+})
+
 export default {}

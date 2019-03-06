@@ -31,7 +31,7 @@
         &:hover {
           color: $c-point;
         }
-        &.router-link-exact-active {
+        &.router-link-active {
           color: $c-point;
           box-shadow: 0 2px 0 $c-point;
         }

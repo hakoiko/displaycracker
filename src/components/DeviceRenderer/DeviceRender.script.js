@@ -6,10 +6,19 @@ export default {
       type: Object,
       required: true
     },
+    deviceAlign: {
+      type: String,
+      default: 'center'
+    },
     // 렌더링 된 화면에서의 overflow 옵션을 설정합니다. [true: auto | flase: hidden]
     scrollable: {
       type: Boolean,
       default: false
+    },
+    // 1mm = 1px. 화면에디바이스를 실제로 그릴 때 사용합니다.
+    scale: {
+      type: Number,
+      default: 2.55
     }
   },
   computed: {
@@ -169,8 +178,6 @@ export default {
   },
   data () {
     return {
-      // 기본적으로 적용할 scale. css transform scale(x)를 통해 적용됩니다.
-      scale: 2.55,
       // 화면상에 100px 단위 grid를 표시할지 여부.
       showGrid: false,
       // 기본적으로 표시할 content의 제목

@@ -1,3 +1,75 @@
 .section-device-detail {
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: $z-pop-over;
+  > .device-detail-body {
+    position: relative;
+    top: 10%;
+    margin: auto;
+    width: 980px;
+    z-index: 2;
+    display: table;
+    > .device-render {
+      position: relative;
+      display: table-cell;
+      width: 330px;
+      height: 600px;
+      > .device-screen-zoomed {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        margin-top: -90px;
+        margin-left: -20px;
+      }
+    }
+    > .device-detail {
+      display: table-cell;
+      background-color: $c-bg-sub;
+      vertical-align: top;
+      padding: 30px;
+      color: $c-text;
+      > .detail-base {
+        > .manufacturer {
+          font: 500 24px 'Raleway';
+        }
+        > .name {
+          font: 700 36px 'Raleway';
+        }
+        > .os {
+          margin-left: -8px;
+          > .icon {
+            $size: 44px;
+            display: block;
+            width: $size;
+            height: $size;
+          }
+        }
+      }
+      > .detail-spec {
+        margin-top: 30px;
+        .spec-list {
+          display: flex;
+          flex-wrap: wrap;
+          > .item {
+            width: 33%;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+  > .dimm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsla(0, 0, 0, 1);
+    opacity: .2;
+    z-index: 1;
+  }
 }

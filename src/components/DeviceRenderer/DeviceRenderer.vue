@@ -1,7 +1,10 @@
 <template>
   <div
     class="device-renderer"
-    :class="'-' + model.manufacturer"
+    :class="[
+      '-' + model.manufacturer,
+      '-align-' + deviceAlign
+    ]"
   >
     <div
       class="body"

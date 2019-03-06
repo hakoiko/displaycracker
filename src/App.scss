@@ -11,3 +11,21 @@
     position: relative;
   }
 }
+
+.icon {
+  background-size: cover;
+  width: 22px;
+  height: 22px;
+  &.-iOS {
+    background-image: url('./assets/icon-apple.svg');
+    &.-inverted { background-image: url('./assets/icon-apple-white.svg'); }
+  }
+  &.-Android {
+    background-image: url('./assets/icon-android.svg');
+    &.-inverted { background-image: url('./assets/icon-android-white.svg'); }
+  }
+  &.-github {
+    background-image: url('./assets/icon-github.svg');
+    &.-inverted { background-image: url('./assets/icon-github-white.svg'); }
+  }
+}

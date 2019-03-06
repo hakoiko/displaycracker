@@ -5,11 +5,11 @@
     margin: -15px;
     > .list-item {
       flex-grow: 1;
+      width: 25%;
       max-width: 25%;
       padding: 15px;
       box-sizing: border-box;
-      height: 392px;
-      margin-bottom: 30px;
+      height: 472px;
       > .item-link {
         display: block;
         cursor: pointer;

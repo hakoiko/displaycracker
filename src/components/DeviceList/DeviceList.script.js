@@ -26,8 +26,12 @@ export default {
      * @param {Object} device Device Object.
      */
     routeToDeviceDetail (device) {
-      console.log('@routeToDeviceDetail:device', device)
-      // this.$router.push
+      this.$router.push({
+        name: 'device-detail',
+        params: {
+          deviceKey: device.key
+        }
+      })
     }
   },
   data () {

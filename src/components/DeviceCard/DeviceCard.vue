@@ -3,6 +3,7 @@
     <div class="device-rendered">
       <device-renderer
         :model="model"
+        device-align="top"
       />
     </div>
     <div class="device-detail">

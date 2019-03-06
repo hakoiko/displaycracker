@@ -1,0 +1,61 @@
+.device-screen-zoomed {
+  width: 160px;
+  height: 160px;
+  border-radius: 160px;
+  background: #fff center repeat url('../../assets/img-transparent.svg');
+  box-shadow: $shadow;
+  position: relative;
+  > .pixel-measure {
+    position: absolute;
+    width: 45%;
+    &.-point {
+      right: 0;
+    }
+  }
+  &.-density-1 {
+    background-size: 106px 106px;
+    background-position: 53px 53px;
+    > .-pixel {
+      height: 53px;
+      top: 53px;
+    }
+    > .-point {
+      height: 53px;
+      top: 53px;
+    }
+  }
+  &.-density-2 {
+    background-size: 100px 100px;
+    > .-pixel {
+      height: 50px;
+      top: 30px;
+    }
+    > .-point {
+      height: 100px;
+      top: 30px;
+    }
+  }
+  &.-density-3 {
+    background-size: 80px 80px;
+    background-position: 0 20px;
+    > .-pixel {
+      height: 40px;
+      top: 60px;
+    }
+    > .-point {
+      height: 120px;
+      top: 20px;
+    }
+  }
+  &.-density-4 {
+    background-size: 60px 60px;
+    > .-pixel {
+      height: 30px;
+      top: 50px;
+    }
+    > .-point {
+      height: 120px;
+      top: 20px;
+    }
+  }
+}

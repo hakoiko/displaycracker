@@ -34,6 +34,15 @@ export default {
       if (!condition.platform.pure) devices = devices.filter(Filter.filterDevicePlatform)
       if (!condition.manufacturer.pure) devices = devices.filter(Filter.filterDeviceManufacturer)
       return devices
+    },
+    /**
+     * Device Key를 통해 Device Data를 가져옵니다.
+     * key: ['iPhoneX' | 'GalaxyS9'] 등 각 device JSON 문서의 Key.
+     *
+     * @param {Object} state vuex state
+     */
+    getDeviceByKey: (state) => (key) => {
+      return state.devices[state.deviceIndex[key]]
     }
   },
   actions: {
@@ -43,11 +52,14 @@ export default {
      */
     initializeDeviceList (context) {
       let deviceIndex = {}
-      Object.keys(Devices).forEach((key, i) => {
+      let deviceKeys = Object.keys(Devices)
+      deviceKeys.forEach((key, i) => {
         deviceIndex[key] = i
       })
       context.commit('initializeDeviceIndex', deviceIndex)
-      context.commit('initialize', Object.values(Devices).map(device => {
+
+      context.commit('initialize', Object.values(Devices).map((device, i) => {
+        device.key = deviceKeys[i]
         device.screen = Object.assign(device.screen, Utils.getSpec(device.screen))
         return device
       }))

@@ -13,20 +13,24 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '',
+      path: '/',
       component: MainView,
+      redirect: '/devices',
       children: [{
-        path: '/',
+        path: '/devices',
         component: DeviceList,
+        name: 'device-list',
         label: 'Devices',
         showOnNav: true,
         children: [{
-          path: 'detail/:deviceName',
+          path: 'detail/:deviceKey',
+          name: 'device-detail',
           component: DeviceDetail,
           showOnNav: false
         }]
       }, {
         path: 'generator',
+        name: 'generator',
         component: DeviceGenerator,
         label: 'Generator',
         showOnNav: true

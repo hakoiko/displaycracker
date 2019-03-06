@@ -33,7 +33,7 @@
       font: 700 18px 'OpenSans';
       color: $c-point;
       outline: none;
-      &::placeholder { color: darken($c-text-invert, 50%); font-weight: 400; }
+      &::placeholder { color: darken($c-text-inverted, 50%); font-weight: 400; }
       &:hover {
         box-shadow: 0 8px 8px rgba(0, 0, 0, .1), 0 8px 30px rgba(0, 0, 0, .05);
       }

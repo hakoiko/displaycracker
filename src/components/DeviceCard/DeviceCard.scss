@@ -1,17 +1,16 @@
 .device-card {
   $detail-spec-height: 45px;
-  $detail-spec-margin-top: 20px;
-  box-shadow: $shadow;
-  transition: .5s ease-out all;
+  $detail-spec-margin-top: 10px;
+  transition: $transition;
   position: relative;
+  box-shadow: $shadow;
   > .device-rendered {
-    height: 275px;
-    overflow: hidden;
+    height: 305px;
     .device-renderer {
-      height: 275px;
-      transition: .8s ease-out all;
+      height: 305px;
+      transition: 1.5s ease-out all;
       > .body {
-        transition: .2s ease-out all;
+        transition: .4s cubic-bezier(.2, .9, .7, 1.2) all;
       }
     }
   }
@@ -19,7 +18,7 @@
     box-sizing: border-box;
     position: relative;
     z-index: 3;
-    padding: $padding;
+    padding: $padding + 10px $padding;
     background-color: $c-bg-sub;
     color: $c-text;
     transition: $transition;
@@ -38,7 +37,7 @@
       text-align: center;
       > .manufacturer {
         display: block;
-        font: 400 12px 'Raleway';
+        font: 500 12px 'Raleway';
         line-height: 14px;
         margin-bottom: 5px;
       }
@@ -55,8 +54,6 @@
           height: 22px;
           margin: auto;
           background-size: contain;
-          &.-iOS { background-image: url('../../assets/icon-apple.svg'); }
-          &.-Android { background-image: url('../../assets/icon-android.svg'); }
         }
       }
     }
@@ -76,20 +73,21 @@
     }
   }
   &:hover {
-    box-shadow: $shadow-hover;
     z-index: 3;
-    transform: scale(1) translateY(-20px);
+    transform: translateY(-20px);
     > .device-rendered {
-      // transform: translateY(-70px);
-      overflow: visible;
+      &:before {
+        height: 40px;
+      }
       .device-renderer {
         background-color: $c-point;
         > .body {
-          transform: translateY(-60px);
+          transform: translateY(-50px);
         }
       }
     }
     > .device-detail {
+      padding: $padding;
       .detail-spec {
         height: $detail-spec-height;
         margin-top: $detail-spec-margin-top;

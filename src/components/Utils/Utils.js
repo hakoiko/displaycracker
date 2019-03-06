@@ -28,6 +28,7 @@ export const getSpec = ({
   result.diagonalMm = hypotenuse
   result.diagonalInch = hypotenuse / inchPerMm
   result.pixelsPer1Mm = resolution.width / result.physicalWidth
+  result.pointsPer1Mm = result.coordinates.width / result.physicalWidth
   result.pixelsPer1Inch = result.pixelsPer1Mm * inchPerMm
   result.physicalPixelSize = result.physicalWidth / resolution.width
   result.physicalPtSize = result.physicalPixelSize * result.density
