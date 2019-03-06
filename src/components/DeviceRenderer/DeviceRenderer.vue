@@ -7,38 +7,39 @@
       '-measure-' + showMeasure
     ]"
   >
-    <pixel-measure
-      v-if="showMeasure"
-      class="-device-horizontal"
-      legend-align="left"
-      legend-vertical-align="top"
-      :style="{
-        width: deviceBodyStyle.width,
-      }"
-    >
-      {{ model.screen.coordinates.width }} pt<br>
-      {{ model.screen.resolution.width }} px<br>
-      {{ model.screen.physicalWidth | toFixed(1) }} mm
-    </pixel-measure>
-    <pixel-measure
-      v-if="showMeasure"
-      class="-device-vertical"
-      :is-horizontal="false"
-      legend-align="left"
-      legend-vertical-align="top"
-      :style="{
-        height: deviceBodyStyle.height,
-        'margin-left': (this.model.device.width * this.scale / -2) - 75 + 'px'
-      }"
-    >
-      {{ model.screen.coordinates.height }} pt<br>
-      {{ model.screen.resolution.height }} px<br>
-      {{ model.screen.physicalHeight | toFixed(1) }} mm
-    </pixel-measure>
     <div
       class="body"
       :style="deviceBodyStyle"
     >
+      <pixel-measure
+        v-if="showMeasure"
+        class="-device-horizontal"
+        legend-align="left"
+        legend-vertical-align="top"
+        :style="{
+          width: deviceScreenStyle.width,
+        }"
+      >
+        {{ model.screen.coordinates.width }} pt<br>
+        {{ model.screen.resolution.width }} px<br>
+        {{ model.screen.physicalWidth | toFixed(1) }} mm
+      </pixel-measure>
+      <pixel-measure
+        v-if="showMeasure"
+        class="-device-vertical"
+        :is-horizontal="false"
+        legend-align="left"
+        legend-vertical-align="top"
+        :style="{
+          height: deviceScreenStyle.height,
+          'transform': 'translateY(' + model.screen.offsetY * scale + 'px)',
+          'margin-left': (this.model.device.width * this.scale / -2) - 75 + 'px'
+        }"
+      >
+        {{ model.screen.coordinates.height }} pt<br>
+        {{ model.screen.resolution.height }} px<br>
+        {{ model.screen.physicalHeight | toFixed(1) }} mm
+      </pixel-measure>
       <div
         class="screen"
         :style="deviceScreenStyle"

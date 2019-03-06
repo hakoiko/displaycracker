@@ -56,7 +56,7 @@ export default {
       const style = {
         width: this.model.screen.physicalWidth * this.scale + 'px',
         height: this.model.screen.physicalHeight * this.scale + 'px',
-        'border-radius': this.model.screen.radius * this.scale + 'px',
+        'border-radius': this.model.screen.radius * this.scale + 'px'
       }
       if (this.model.screen.style) return Object.assign(style, this.model.screen.style)
       return style

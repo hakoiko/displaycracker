@@ -5,7 +5,7 @@
       href="https://github.com/hakoiko/displaycracker"
     />
     Released under MIT License<br>
-    Copyright © 2014-2019 Chris Kim
+    Copyright © 2019 Chris Kim
   </div>
 </template>
 <script>

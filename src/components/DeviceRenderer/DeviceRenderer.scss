@@ -6,20 +6,6 @@
   display: block;
   height: 100%;
   transition: $transition;
-  > .pixel-measure {
-    position: absolute;
-    height: auto;
-    width: auto;
-    &.-device-horizontal {
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
-    &.-device-vertical {
-      left: 50%;
-      top: 95px;
-    }
-  }
   &.-Apple {
     background: hsla(190, 65%, 85%, 1);
   }
@@ -69,6 +55,24 @@
       background: transparent;
       box-shadow: 0 2px 30px 0 hsla(0, 0, 0, .2), 0 1px 3px 0 hsla(0, 0, 0%, .3);
       border-radius: inherit;
+    }
+    > .pixel-measure {
+      position: absolute;
+      height: auto;
+      width: auto;
+      z-index: 1;
+      &.-device-horizontal {
+        top: -70px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      &.-device-vertical {
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
     }
     > .screen {
       position: absolute;

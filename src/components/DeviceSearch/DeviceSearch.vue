@@ -7,7 +7,7 @@
         class="input"
         v-model="condition.string.value"
         @keyup="updateCondition(condition.string, 'string')"
-        placeholder="Search Device"
+        placeholder="Search device name"
       >
     </div>
     <ul
