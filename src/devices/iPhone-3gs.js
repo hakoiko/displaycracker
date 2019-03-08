@@ -10,7 +10,11 @@ export const iPhone3GS = {
   },
   screen: {
     diagonal: 3.5, // diagonal length in inch. all of speification in this document is defined in SI unit. but most of manufacturers are open their screen sizes only in Inch. this is the only one yard/pound unit on this document.
-    resolution: { // display scale in rendered pixels.
+    renderedPixels: { // display scale in rendered pixels.
+      width: 320,
+      height: 480
+    },
+    physicalPixels: { // physical pixels on display hardware
       width: 320,
       height: 480
     },

@@ -50,9 +50,9 @@
                 {{ model.screen.density }}x
               </spec-item>
             </li>
-            <li class="item -resolution">
-              <spec-item label="Rendered Pixels">
-                {{ model.screen.resolution.width }} x {{ model.screen.resolution.height }}
+            <li class="item -physical-pixels">
+              <spec-item label="Physical Pixels">
+                {{ model.screen.physicalPixels.width}} x {{ model.screen.physicalPixels.height }}
               </spec-item>
             </li>
             <li class="item -px-per-mm">
@@ -65,6 +65,17 @@
                 {{ model.screen.pixelsPer1Inch | toFixed(2) }}
               </spec-item>
             </li>
+            <li class="item -rendered-pixels">
+              <spec-item label="Rendered Pixels">
+                {{ model.screen.renderedPixels.width }} x {{ model.screen.renderedPixels.height }}
+              </spec-item>
+            </li>
+            <li class="item -resampling-scale">
+              <spec-item label="Resampling Scale">
+                {{ model.screen.resamplingScale | toFixed(2) }}
+              </spec-item>
+            </li>
+            <li class="item" />
             <li class="item -physical">
               <spec-item label="Milimeters">
                 {{ model.screen.physicalWidth | toFixed(2) }} x {{ model.screen.physicalHeight | toFixed(2) }}

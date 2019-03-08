@@ -47,8 +47,8 @@ export default {
     let sizes = [
       device.screen.coordinates.width,
       device.screen.coordinates.height,
-      device.screen.resolution.width,
-      device.screen.resolution.height,
+      device.screen.physicalPixels.width,
+      device.screen.physicalPixels.height,
       Number(device.screen.physicalWidth.toFixed(2)),
       Number(device.screen.physicalHeight.toFixed(2))
     ]

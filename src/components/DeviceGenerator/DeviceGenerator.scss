@@ -1,3 +1,35 @@
-.section-phone-generator {
-
+.section-device-generator {
+  display: flex;
+  > .device-rendered {
+    height: 640px;
+    width: 400px;
+  }
+  > .device-editor {
+    flex: 1 1 auto;
+    > .editor-tab {
+      color: lighten($c-text, 20%);
+      border-bottom: 2px solid lighten($c-text, 40%);
+      > .tab-item {
+        font: 700 12px 'OpenSans';
+        width: auto;
+        padding: 10px;
+        display: inline-block;
+        margin-right: 30px;
+        &.-on {
+          box-shadow: 0 2px 0 $c-point;
+          color: $c-point;
+        }
+      }
+    }
+    .editor-gui {
+      padding: $padding 0;
+      box-sizing: border-box;
+      color: $c-text;
+      > .editor-item {
+        margin-bottom: $padding/2;
+        &.-name { width: 30%; }
+        &.-manufacturer { width: 50%; }
+      }
+    }
+  }
 }

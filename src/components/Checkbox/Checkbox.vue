@@ -64,7 +64,7 @@ export default {
       border: 1px solid $c-line;
       border-radius: 22px;
       pointer-events: none;
-      background-color: lighten($c-line, 15%);
+      background-color: lighten($c-line, 25%);
       border-color: $c-line;
     }
     &:checked:after {

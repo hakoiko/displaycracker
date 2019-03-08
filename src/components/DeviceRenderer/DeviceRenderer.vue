@@ -2,7 +2,7 @@
   <div
     class="device-renderer"
     :class="[
-      '-' + model.manufacturer,
+      '-manufacturer-' + model.manufacturer,
       '-align-' + deviceAlign,
       '-measure-' + showMeasure
     ]"
@@ -21,7 +21,7 @@
         }"
       >
         {{ model.screen.coordinates.width }} pt<br>
-        {{ model.screen.resolution.width }} px<br>
+        {{ model.screen.physicalPixels.width }} px<br>
         {{ model.screen.physicalWidth | toFixed(1) }} mm
       </pixel-measure>
       <pixel-measure
@@ -37,7 +37,7 @@
         }"
       >
         {{ model.screen.coordinates.height }} pt<br>
-        {{ model.screen.resolution.height }} px<br>
+        {{ model.screen.physicalPixels.height }} px<br>
         {{ model.screen.physicalHeight | toFixed(1) }} mm
       </pixel-measure>
       <div

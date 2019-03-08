@@ -1,5 +1,5 @@
 import * as Devices from '../devices'
-import * as Utils from '../components/Utils/Utils'
+import { GetSpec } from '../components/Utils/Utils'
 import Search from './Search'
 import Filter from '../components/Utils/DeviceListFilter'
 
@@ -60,7 +60,7 @@ export default {
 
       context.commit('initialize', Object.values(Devices).map((device, i) => {
         device.key = deviceKeys[i]
-        device.screen = Object.assign(device.screen, Utils.getSpec(device.screen))
+        device.screen = Object.assign(device.screen, GetSpec(device.screen))
         return device
       }))
     },

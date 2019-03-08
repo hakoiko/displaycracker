@@ -1,18 +1,21 @@
 .device-renderer {
-  background: #ccc;
+  background: transparent;
   position: relative;
   padding: 25px;
   box-sizing: border-box;
   display: block;
   height: 100%;
   transition: $transition;
-  &.-Apple {
+  &.-manufacturer- {
+    &:after { opacity: 0; }
+  }
+  &.-manufacturer-Apple {
     background: hsla(190, 65%, 85%, 1);
   }
-  &.-Samsung {
+  &.-manufacturer-Samsung {
     background: hsla(220, 65%, 85%, 1);
   }
-  &.-LG {
+  &.-manufacturer-LG {
     background: hsla(340, 65%, 85%, 1);
   }
   &.-measure-true > .body { margin-top: 70px; }

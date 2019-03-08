@@ -30,8 +30,8 @@
               Pt
             </span>
           </li>
-          <li class="item -resolution">
-            {{ model.screen.resolution.width }} x {{ model.screen.resolution.height }}
+          <li class="item -rendered-pixels">
+            {{ model.screen.physicalPixels.width }} x {{ model.screen.physicalPixels.height }}
             <span class="unit">
               Px
             </span>

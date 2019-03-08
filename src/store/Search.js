@@ -139,8 +139,8 @@ export default {
       devices.forEach(device => {
         condition.displaySize.pointWidth.children.push(device.screen.coordinates.width)
         condition.displaySize.pointHeight.children.push(device.screen.coordinates.height)
-        condition.displaySize.pixelWidth.children.push(device.screen.resolution.width)
-        condition.displaySize.pixelHeight.children.push(device.screen.resolution.height)
+        condition.displaySize.pixelWidth.children.push(device.screen.physicalPixels.width)
+        condition.displaySize.pixelHeight.children.push(device.screen.physicalPixels.height)
         condition.displaySize.physicalWidth.children.push(Number(device.screen.physicalWidth.toFixed(2)))
         condition.displaySize.physicalHeight.children.push(Number(device.screen.physicalHeight.toFixed(2)))
         condition.density.children.push(device.screen.density)
