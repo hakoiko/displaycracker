@@ -33,9 +33,60 @@
             @input="updateModel"
           />
         </li>
+        <li class="editor-item -device">
+          <input-text
+            v-model="generatedModel.device.width"
+            label="Device Width"
+            unit="mm"
+            @input="updateModel"
+            @focus="focused = 'device-width'"
+            @blur="focused = ''"
+          />
+        </li>
+        <li class="editor-item -device">
+          <input-text
+            v-model="generatedModel.device.height"
+            label="Device Height"
+            unit="mm"
+            @input="updateModel"
+            @focus="focused = 'device-height'"
+            @blur="focused = ''"
+          />
+        </li>
+        <li class="editor-item -device-radius">
+          <input-text
+            v-model="generatedModel.device.radius"
+            label="Device Corner Radius"
+            unit="mm"
+            @focus="focused = 'device-radius'"
+            @blur="focused = ''"
+            @input="updateModel"
+          />
+        </li>
+        <li class="editor-item -diagonal">
+          <input-text
+            v-model="generatedModel.screen.diagonal"
+            label="Screen Size"
+            unit="Inch"
+            @input="updateModel"
+            @focus="focused = 'screen-diagonal'"
+            @blur="focused = ''"
+          />
+        </li>
+        <li class="editor-item -screen-radius">
+          <input-text
+            v-model="generatedModel.screen.radius"
+            label="Screen Cornor Radius"
+            unit="mm"
+            @input="updateModel"
+            @focus="focused = 'screen-radius'"
+            @blur="focused = ''"
+          />
+        </li>
         <li class="editor-item -viewport">
           <input-text
             v-model="generatedModel.screen.coordinates.width"
+            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
             label="Viewport Width"
             @input="updateModel"
           />
@@ -44,6 +95,7 @@
           <input-text
             v-model="generatedModel.screen.coordinates.height"
             label="Viewport Height"
+            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
             @input="updateModel"
           />
         </li>
@@ -51,6 +103,7 @@
           <input-text
             v-model="generatedModel.screen.renderedPixels.width"
             label="Rendered Pixel Width"
+            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
             @input="updateModel"
           />
         </li>
@@ -58,6 +111,23 @@
           <input-text
             v-model="generatedModel.screen.renderedPixels.height"
             label="Rendered Pixel Height"
+            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
+            @input="updateModel"
+          />
+        </li>
+        <li class="editor-item -physical-pixels">
+          <input-text
+            v-model="generatedModel.screen.physicalPixels.width"
+            label="Physical Pixel Width"
+            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
+            @input="updateModel"
+          />
+        </li>
+        <li class="editor-item -physical-pixels">
+          <input-text
+            v-model="generatedModel.screen.physicalPixels.height"
+            label="Physical Pixel Height"
+            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
             @input="updateModel"
           />
         </li>
@@ -67,8 +137,11 @@
     <!-- /.device-deitor -->
     <div class="device-rendered">
       <device-renderer
+        ref="renderer"
         :model="generatedModel"
+        :show-measure="true"
         :scale="3"
+        :focused="focused"
       />
     </div>
     <!-- /device-rendered -->

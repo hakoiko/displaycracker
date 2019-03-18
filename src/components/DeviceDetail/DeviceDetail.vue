@@ -52,7 +52,7 @@
             </li>
             <li class="item -physical-pixels">
               <spec-item label="Physical Pixels">
-                {{ model.screen.physicalPixels.width}} x {{ model.screen.physicalPixels.height }}
+                {{ model.screen.physicalPixels.width }} x {{ model.screen.physicalPixels.height }}
               </spec-item>
             </li>
             <li class="item -px-per-mm">

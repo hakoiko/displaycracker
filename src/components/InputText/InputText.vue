@@ -1,19 +1,36 @@
 <template>
   <div class="input-text">
-    <span v-if="label.length" class="label">
+    <span
+      v-if="label.length"
+      class="label"
+    >
       {{ label }}
     </span>
+    <span
+      v-if="unit.length"
+      class="unit"
+    >
+      {{ unit }}
+    </span>
     <input
-      type="text"
+      :type="type"
       class="input"
       ref="input"
       :value="value"
       :placeholder="placeholder"
+      :style="{ 'padding-right': unit.length ? '40px' : '15px' }"
       @input="updateValue"
+      @focus="focus"
+      @blur="blur"
+      @change="change"
+      @valid="valid"
+      @submit="submit"
     >
   </div>
 </template>
 <script>
+import _ from 'lodash'
+
 export default {
   name: 'InputText',
   model: {
@@ -31,8 +48,16 @@ export default {
     },
     placeholder: {
       type: String,
-      default: '',
-      required: false
+      default: ''
+    },
+    unit: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    type () {
+      return _.isNumber(this.value) ? 'number' : 'text'
     }
   },
   mounted () {
@@ -40,7 +65,23 @@ export default {
   },
   methods: {
     updateValue ($event) {
-      this.$emit('input', $event.target.value)
+      let val = (this.type === 'number') ? $event.target.valueAsNumber : $event.target.value
+      this.$emit('input', val)
+    },
+    focus ($event) {
+      this.$emit('focus', $event)
+    },
+    blur ($event) {
+      this.$emit('blur', $event)
+    },
+    change ($event) {
+      this.$emit('change', $event)
+    },
+    valid ($event) {
+      this.$emit('valid', $event)
+    },
+    submit ($event) {
+      this.$emit('submit', $event)
     }
   }
 }
@@ -52,6 +93,13 @@ export default {
     font: 700 12px 'OpenSans';
     padding: 5px 15px;
     display: block;
+  }
+  > .unit {
+    font: 400 12px 'OpenSans';
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    line-height: 38px;
   }
   > .input {
     display: block;

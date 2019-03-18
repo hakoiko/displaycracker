@@ -11,6 +11,7 @@
   > .measure-bar {
     top: 0;
     background: $c-line-sub;
+    transition: $transition;
     &:before,
     &:after {
       position: absolute;
@@ -47,9 +48,9 @@
         text-align: left;
       }
     }
-    &.-legend-left {
+    &.-legend-center {
       .measure-result {
-        text-align: left;
+        text-align: center;
       }
     }
     &.-legend-right {
@@ -108,6 +109,20 @@
     }
     &.-legend-vertical-bottom {
       align-items: flex-end;
+    }
+  }
+  &.-on {
+    > .measure-bar {
+      background-color: $c-point;
+      box-shadow: 0 0 0 1px rgba($c-point, 100%);
+      &:before,
+      &:after {
+        background-color: $c-point;
+        box-shadow: 0 0 0 1px rgba($c-point, 100%);
+      }
+    }
+    > .measure-result {
+      color: $c-point;
     }
   }
 }

@@ -42,6 +42,7 @@ $cg-point: linear-gradient(to bottom, $blue-purple, $purple-dark);
 
 // TRANSITION
 $transition: .2s ease-out all;
+$tr-bounce: cubic-bezier(.2, .9, .7, 1.2);
 
 // BASIC SCALES
 $padding: 25px;

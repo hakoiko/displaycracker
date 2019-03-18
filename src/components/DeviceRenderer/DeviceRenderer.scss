@@ -64,8 +64,20 @@
       height: auto;
       width: auto;
       z-index: 1;
-      &.-device-horizontal {
+      &.-screen-horizontal {
         top: -70px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      &.-screen-vertical {
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      &.-device-horizontal {
+        bottom: -45px;
         left: 0;
         right: 0;
         margin: auto;
@@ -137,6 +149,39 @@
           }
         }
       }
+    }
+    .radius-measure {
+      border: 1px solid $c-line;
+      position: absolute;
+      border-radius: 150px;
+      opacity: 0;
+      transition: $transition;
+      transform-origin: center;
+      transform: scale(.7);
+      z-index: 2;
+      &.-screen-top-left,
+      &.-device-top-left { top: 0; left: 0; }
+      &.-screen-top-right,
+      &.-device-top-right { top: 0; right: 0 }
+      &.-screen-bottom-left,
+      &.-device-bottom-left { bottom: 0; left: 0 }
+      &.-screen-bottom-right,
+      &.-device-bottom-right { bottom: 0; right: 0 }
+      &.-on {
+        opacity: 1;
+        transform: scale(1);
+        border-color: $c-point;
+      }
+    }
+    > .diagonal-length {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: auto;
+      height: 30px;
+      transform-origin: left top;
+      &.-on { opacity: 1; }
     }
   }
  }

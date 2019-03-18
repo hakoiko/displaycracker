@@ -25,13 +25,26 @@ export default {
           width: 375,
           height: 812
         },
-        density: 3, // renderedScale / coordinateScale.
         offsetX: 0, // screen X offset from center in mm. 0 means 'center of device = center of screen'.
         offsetY: 0, // screen Y offset from center in mm. 10 =-10 left from center.
         radius: 5, // radius of screen corner in mm.
         type: 'OLED', // display type. [LCD | OLED | e-ink | ...more]
         pentiled: true, // 'pentile' is pantented display mechanism by Samsung electronics. normal LCD displays have 3 subpixels(RGB) in 1 pixel. but 'pentile' displays have usually 2 subpixels in 1 pixel.
         pattern: 'RG-BG', // [RG-BG | RG-BW | RGB] // usually, LCDs have RGB subpixels. but OLEDs are RG-BG or RG-BW.
+        aspectRatio: 0,
+        alfa: 0,
+        alfaAngle: 0,
+        betaAngle: 0,
+        physicalHeight: 0,
+        physicalWidth: 0,
+        diagonalMm: 0,
+        diagonalInch: 0,
+        pixelsPer1Mm: 0,
+        pointsPer1Mm: 0,
+        pixelsPer1Inch: 0,
+        physicalPixelSize: 0,
+        physicalPtSize: 0,
+        resamplingScale: 0,
         style: {} // custom styles for screen
       },
       notch: {
@@ -48,13 +61,13 @@ export default {
   },
   getters: {
     generatedModel (state, getters) {
-      Object.assign(state.model.screen, GetSpec(state.model.screen))
       return state.model
     }
   },
   actions: {},
   mutations: {
     setGeneratorDevice (state, device) {
+      Object.assign(device.screen, GetSpec(device.screen))
       state.model = device
     }
   }

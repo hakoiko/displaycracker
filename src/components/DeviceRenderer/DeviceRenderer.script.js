@@ -29,6 +29,11 @@ export default {
     showMeasure: {
       type: Boolean,
       default: false
+    },
+    // Generator에서 편집시 Focus된 input에 해당하는 부분의 명칭을 전달합니다 [ ... 'device-width' | 'coordinates-height']
+    focused: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -48,6 +53,18 @@ export default {
       return style
     },
     /**
+     * Generator에서 Device Body의 Radius 를 편집할 떄 보여줄 원을 위한 스타일을 리턴합니다
+     *
+     * @return CSS Object
+     */
+    deviceBodyRadiusStyle () {
+      const style = {
+        width: this.model.device.radius * this.scale * 2 + 'px',
+        height: this.model.device.radius * this.scale * 2 + 'px'
+      }
+      return style
+    },
+    /**
      * Device의 스크린 스타일을 설정합니다.
      *
      * @returns CSS Object
@@ -60,6 +77,32 @@ export default {
       }
       if (this.model.screen.style) return Object.assign(style, this.model.screen.style)
       return style
+    },
+    /**
+     * 스크린 대각선 길이를 표시하는 Element의 스타일을 지정합니다.
+     *
+     * @return CSS Object
+     */
+    deviceScreenDiagonalStyle () {
+      console.log('@deviceRenderer.deviceScreenDiagonalSize.model:', this.model)
+      let angle = 90 - this.model.screen.alfaAngle
+      return {
+        width: this.model.screen.diagonalMm * this.scale + 'px',
+        transform: 'rotate(' + angle + 'deg)',
+        'margin-left': ((this.model.device.width - this.model.screen.physicalWidth) / 2 + this.model.screen.offsetX) * this.scale + 'px',
+        'margin-top': ((this.model.device.height - this.model.screen.physicalHeight) / 2 + this.model.screen.offsetY) * this.scale + 'px'
+      }
+    },
+    /**
+     * Generator에서 Device Screen의 Radius 를 편집할 떄 보여줄 원을 위한 스타일을 리턴합니다
+     *
+     * @return CSS Object
+     */
+    deviceScreenRadiusStyle () {
+      return {
+        width: this.model.screen.radius * this.scale * 2 + 'px',
+        height: this.model.screen.radius * this.scale * 2 + 'px'
+      }
     },
     /**
      * Device에 표시될 컨텐츠 부분의 기본 스타일을 리턴합니다.

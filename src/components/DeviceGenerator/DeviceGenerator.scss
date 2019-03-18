@@ -6,6 +6,7 @@
   }
   > .device-editor {
     flex: 1 1 auto;
+    position: relative;
     > .editor-tab {
       color: lighten($c-text, 20%);
       border-bottom: 2px solid lighten($c-text, 40%);
@@ -22,13 +23,27 @@
       }
     }
     .editor-gui {
+      width: 650px;
       padding: $padding 0;
       box-sizing: border-box;
       color: $c-text;
+      display: flex;
+      flex-wrap: wrap;
       > .editor-item {
-        margin-bottom: $padding/2;
-        &.-name { width: 30%; }
-        &.-manufacturer { width: 50%; }
+        margin-bottom: $padding;
+        width: 100%;
+        &.-name { width: 50%; }
+        &.-manufacturer,
+        &.-device-radius,
+        &.-screen-radius,
+        &.-diagonal { width: 60%; }
+        &.-device,
+        &.-rendered-pixels,
+        &.-physical-pixels,
+        &.-viewport {
+          width: 40%;
+          margin-right: $padding;
+        }
       }
     }
   }
