@@ -114,11 +114,11 @@
   &.-on {
     > .measure-bar {
       background-color: $c-point;
-      box-shadow: 0 0 0 1px rgba($c-point, 100%);
+      box-shadow: 0 0 0 0.5px rgba($c-point, 100%);
       &:before,
       &:after {
         background-color: $c-point;
-        box-shadow: 0 0 0 1px rgba($c-point, 100%);
+        box-shadow: 0 0 0 0.5px rgba($c-point, 100%);
       }
     }
     > .measure-result {

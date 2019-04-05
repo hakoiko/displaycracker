@@ -19,6 +19,7 @@
       :value="value"
       :placeholder="placeholder"
       :style="{ 'padding-right': unit.length ? '40px' : '15px' }"
+      :disabled="disabled"
       @input="updateValue"
       @focus="focus"
       @blur="blur"
@@ -53,6 +54,10 @@ export default {
     unit: {
       type: String,
       default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -113,6 +118,10 @@ export default {
     box-shadow: $shadow;
     transition: .2s ease-out box-shadow;
     font-size: 16px;
+    &:disabled {
+      background: $c-bg-sub-disabled;
+      color: $c-text-disabled
+    }
     &:focus {
       box-shadow: $shadow-hover;
     }

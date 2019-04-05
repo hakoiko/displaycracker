@@ -19,12 +19,6 @@ export default {
     }
   },
   computed: {
-    aspectRatioValidated () {
-      const aspectRatioViewport = this.generatedModel.screen.coordinates.width / this.generatedModel.screen.coordinates.height
-      const aspectRatioRender = this.generatedModel.screen.renderedPixels.width / this.generatedModel.screen.renderedPixels.height
-      const aspectRatioPhysical = this.generatedModel.screen.physicalPixels.width / this.generatedModel.screen.physicalPixels.height
-      return ((aspectRatioViewport === aspectRatioRender) && (aspectRatioViewport === aspectRatioPhysical))
-    },
     ...mapGetters(['generatedModel'])
   },
   data () {

@@ -99,10 +99,17 @@
       overflow: hidden;
       background-image: linear-gradient(to bottom, hsla(0, 0, 98%, .9), hsla(0, 0, 95%, .7));
       box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) inset;
+      transition: $transition;
+      &.-on { box-shadow: 0 0 0 1px $c-point inset; }
       > .notch {
         position: absolute;
         margin: auto;
         border: 1px solid rgba(0, 0, 0, .1);
+        transition: $transition;
+        &.-on {
+          border-color: $c-point;
+          border-width: 2px;
+        }
       }
       > .content {
         position: relative;
@@ -151,7 +158,8 @@
       }
     }
     .radius-measure {
-      border: 1px solid $c-line;
+      border: 2px solid $c-line;
+      box-sizing: border-box;
       position: absolute;
       border-radius: 150px;
       opacity: 0;

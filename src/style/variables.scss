@@ -32,8 +32,10 @@ $gray-darker: #333;
 $c-point: $blue-purple;
 $c-bg-main: $manilla;
 $c-bg-sub: $white;
+$c-bg-sub-disabled: lighten($gray-lighter, 8%);
 $c-text: $mud-brown;
 $c-text-inverted: $white;
+$c-text-disabled: lighten($mud-brown, 30%);
 
 $c-line: $gray-light;
 $c-line-sub: $gray-dark;

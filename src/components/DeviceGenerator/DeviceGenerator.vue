@@ -25,6 +25,7 @@
             @input="updateModel"
           />
         </li>
+        <hr class="break-line">
         <li class="editor-item -os">
           <input-switch
             v-model="generatedModel.os"
@@ -33,6 +34,7 @@
             @input="updateModel"
           />
         </li>
+        <hr class="break-line">
         <li class="editor-item -device">
           <input-text
             v-model="generatedModel.device.width"
@@ -83,11 +85,13 @@
             @blur="focused = ''"
           />
         </li>
+        <hr class="break-line">
         <li class="editor-item -viewport">
           <input-text
             v-model="generatedModel.screen.coordinates.width"
-            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
             label="Viewport Width"
+            unit="pt"
+            @focus="focused = 'screen-width'"
             @input="updateModel"
           />
         </li>
@@ -95,7 +99,17 @@
           <input-text
             v-model="generatedModel.screen.coordinates.height"
             label="Viewport Height"
-            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
+            unit="pt"
+            @focus="focused = 'screen-height'"
+            @input="updateModel"
+          />
+        </li>
+        <hr class="break-line">
+        <li class="editor-item -density">
+          <input-text
+            v-model="generatedModel.screen.density"
+            label="Density"
+            @focus="focused = 'screen'"
             @input="updateModel"
           />
         </li>
@@ -103,7 +117,9 @@
           <input-text
             v-model="generatedModel.screen.renderedPixels.width"
             label="Rendered Pixel Width"
-            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
+            unit="px"
+            disabled="disabled"
+            @focus="focused = 'screen-width'"
             @input="updateModel"
           />
         </li>
@@ -111,7 +127,18 @@
           <input-text
             v-model="generatedModel.screen.renderedPixels.height"
             label="Rendered Pixel Height"
-            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
+            unit="px"
+            disabled="disabled"
+            @focus="focused = 'screen-height'"
+            @input="updateModel"
+          />
+        </li>
+        <hr class="break-line">
+        <li class="editor-item -resampling-scale">
+          <input-text
+            v-model="generatedModel.screen.resamplingScale"
+            label="Resampling Scale"
+            @focus="focused = 'screen'"
             @input="updateModel"
           />
         </li>
@@ -119,7 +146,9 @@
           <input-text
             v-model="generatedModel.screen.physicalPixels.width"
             label="Physical Pixel Width"
-            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
+            unit="px"
+            disabled="disabled"
+            @focus="focused = 'screen-width'"
             @input="updateModel"
           />
         </li>
@@ -127,7 +156,9 @@
           <input-text
             v-model="generatedModel.screen.physicalPixels.height"
             label="Physical Pixel Height"
-            :class="{ '-incorrect-aspect-ratio': aspectRatioValidated }"
+            unit="px"
+            disabled="disabled"
+            @focus="focused = 'screen-height'"
             @input="updateModel"
           />
         </li>

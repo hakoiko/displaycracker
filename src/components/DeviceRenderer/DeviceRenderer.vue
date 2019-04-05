@@ -38,6 +38,7 @@
       <pixel-measure
         v-if="showMeasure"
         class="-screen-horizontal"
+        :class="{ '-on': focused === 'screen-width' }"
         legend-align="left"
         legend-vertical-align="top"
         :style="{
@@ -51,6 +52,7 @@
       <pixel-measure
         v-if="showMeasure"
         class="-screen-vertical"
+        :class="{ '-on': focused === 'screen-height' }"
         :is-horizontal="false"
         legend-align="left"
         legend-vertical-align="top"
@@ -101,6 +103,7 @@
       <div
         class="screen"
         :style="deviceScreenStyle"
+        :class="{ '-on': focused === 'screen' }"
       >
         <div
           v-if="showMeasure"
@@ -158,6 +161,7 @@
         <div
           class="notch"
           :style="deviceNotchStyle"
+          :class="{ '-on': focused === 'screen' }"
         />
       </div>
       <!-- /.device-screen -->

@@ -13,6 +13,8 @@ export default {
       },
       screen: {
         diagonal: 5.8, // diagonal length in inch. all of speification in this document is defined in SI unit. but most of manufacturers are open their screen sizes only in Inch. this is the only one yard/pound unit on this document.
+        density: 3,
+        resamplingScale: 1,
         renderedPixels: { // display scale in rendered pixels.
           width: 1125,
           height: 2436

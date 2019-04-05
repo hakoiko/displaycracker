@@ -2,10 +2,9 @@
   display: flex;
   > .device-rendered {
     height: 640px;
-    width: 400px;
+    min-width: 600px;
   }
   > .device-editor {
-    flex: 1 1 auto;
     position: relative;
     > .editor-tab {
       color: lighten($c-text, 20%);
@@ -23,25 +22,35 @@
       }
     }
     .editor-gui {
-      width: 650px;
       padding: $padding 0;
       box-sizing: border-box;
       color: $c-text;
       display: flex;
-      flex-wrap: wrap;
+      flex-flow: row wrap;
+      > .break-line {
+        width: 100%;
+        height: 0;
+        margin: 0;
+        border: none;
+        opacity: 0;
+      }
       > .editor-item {
         margin-bottom: $padding;
-        width: 100%;
-        &.-name { width: 50%; }
+        &.-name,
         &.-manufacturer,
         &.-device-radius,
         &.-screen-radius,
-        &.-diagonal { width: 60%; }
+        &.-diagonal { width: 85%; }
         &.-device,
+        &.-viewport,
         &.-rendered-pixels,
-        &.-physical-pixels,
-        &.-viewport {
-          width: 40%;
+        &.-physical-pixels {
+          width: 30%;
+          margin-right: $padding;
+        }
+        &.-resampling-scale,
+        &.-density {
+          width: 25%;
           margin-right: $padding;
         }
       }
